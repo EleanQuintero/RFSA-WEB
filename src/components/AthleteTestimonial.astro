@@ -1,0 +1,119 @@
+---
+const testimonials = [
+  {
+    name: "John Smith",
+    sport: "Swimming",
+    image: "https://powerhispania.net/wp-content/uploads/2024/10/Adrian_Manzanares.jpg",
+    rating: 5,
+    testimonial: "Training here has completely transformed my performance in the pool. The facilities and coaching are world-class."
+  },
+  {
+    name: "Maria Rodriguez",
+    sport: "Track & Field",
+    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=400&fit=crop",
+    rating: 5,
+    testimonial: "The personalized training program helped me achieve my personal best in the 100m sprint. Couldn't be happier!"
+  },
+  {
+    name: "David Chen",
+    sport: "Basketball",
+    image: "https://images.unsplash.com/photo-1519311965067-36d3e5f33d39?w=400&h=400&fit=crop",
+    rating: 5,
+    testimonial: "The team's approach to training and recovery has been instrumental in my development as a professional athlete."
+  },
+];
+---
+
+<div class="relative w-full overflow-hidden py-12">
+  <div class="mx-auto w-96 lg:w-7xl px-2 sm:px-6 lg:px-4">
+    <div class="testimonial-carousel relative overflow-hidden">
+      <!-- Contenedor principal de slides -->
+      <div class="flex transition-transform duration-500 ease-in-out">
+        {testimonials.map((testimonial) => (
+          <div class="w-full flex-none p-4">
+            <div class="h-full rounded-2xl bg-white p-8 shadow-lg">
+              <div class="flex items-center gap-4">
+                <img
+                  loading="lazy"
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  class="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <h3 class="font-semibold text-gray-900">{testimonial.name}</h3>
+                  <p class="text-sm text-gray-600">{testimonial.sport}</p>
+                </div>
+              </div>
+              <div class="mt-4 flex text-yellow-400">
+                {Array.from({ length: testimonial.rating }).map(() => (
+                  <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="mt-4 text-gray-600">{testimonial.testimonial}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  if (typeof window !== 'undefined') {
+    // Una vez montado el DOM, configuramos el carrusel
+    let currentSlide = 0;
+    const carousel = document.querySelector('.testimonial-carousel .flex');
+    const slides = carousel ? carousel.querySelectorAll(':scope > div') : [];
+    const totalSlides = slides.length;
+
+    // Clonar el primer slide y añadirlo al final para lograr bucle infinito
+    const firstSlideClone = slides[0].cloneNode(true);
+    carousel?.appendChild(firstSlideClone);
+
+    function updateCarousel(transition = true) {
+      // Controlar la transición para poder "saltarnos" sin animación
+      if (!transition) {
+        carousel.style.transition = 'none';
+      } else {
+        carousel.style.transition = 'transform 500ms ease-in-out';
+      }
+
+      const slideWidth = slides[0].offsetWidth;
+      carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+
+      // Si hemos quitado la transición, la reactivamos después de forzar un reflow
+      if (!transition) {
+        // Forzamos reflow
+        carousel.offsetWidth;
+        carousel.style.transition = 'transform 500ms ease-in-out';
+      }
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      updateCarousel();
+
+      // Si llegamos al slide clonado (posición totalSlides), reseteamos
+      if (currentSlide === totalSlides) {
+        setTimeout(() => {
+          currentSlide = 0;
+          updateCarousel(false); // reinicia sin transición
+        }, 500); // 500ms = duración de la transición
+      }
+    }
+
+    // Avanzar automáticamente cada 3 segundos
+    setInterval(nextSlide, 3500);
+
+    // Ajustar posición del carrusel cuando cambia el tamaño de la ventana
+    window.addEventListener('resize', () => updateCarousel());
+  }
+</script>
+
+<style>
+  .testimonial-carousel {
+    scroll-behavior: smooth;
+  }
+</style>
