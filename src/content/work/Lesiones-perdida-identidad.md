@@ -1,14 +1,14 @@
 ---
-title: Markdown Mystery Tour
-publishDate: 2020-03-02 00:00:00
+title: Lesiones y perdida de identidad
+publishDate: 2025-01-19 00:00:00
 img: /assets/stock-1.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
-  We designed a whodunnit-style game to introduce Markdown formatting. Suspense — suspicion — syntax!
+  El deporte fortalece la autoestima y la comunidad, pero diversificar nuestra identidad es clave para un bienestar integral.
 tags:
-  - Design
-  - Dev
-  - User Testing
+  - Deporte
+  - Bienesar
+  - Comunidad
 ---
 
 ## Level-two heading
