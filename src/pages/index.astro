@@ -51,8 +51,8 @@ const projects = (await getCollection('work'))
 				<Skills client:visible  />
 			</section>
 
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
+			<section class="section with-background with-cta lg:gap-4 p-4 m-auto ">
+				<header class="section-header stack gap-2 ">
 					<h3>Blog</h3>
 					<p>Aqui encontraras algunas de mis mejores publicaciones</p>
 				</header>
@@ -168,12 +168,12 @@ const projects = (await getCollection('work'))
 	@media (min-width: 50em) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery' 'cta cta cta cta';
 			gap: 5rem;
 		}
 
 		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+			grid-template-areas: 'header header header' 'gallery gallery gallery gallery' 'cta cta cta';
 		}
 
 		.section-header {
@@ -186,8 +186,8 @@ const projects = (await getCollection('work'))
 		}
 
 		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
+			justify-self: center;
+			text-align: center;
 		}
 
 		.gallery {
@@ -197,6 +197,7 @@ const projects = (await getCollection('work'))
 
 		.cta {
 			grid-area: cta;
+			justify-items: right;
 		}
 	}
 
