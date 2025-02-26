@@ -1,9 +1,3 @@
-backend:
-  name: github
-  repo: EleanQuintero/RFSA-WEB
-  branch: main
-  use_graphql: true
-
   backend:
   name: github
   repo: EleanQuintero/RFSA-WEB # Reemplaza con tu repositorio
