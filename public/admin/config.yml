@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: EleanQuintero/RFSA-WEB # Cambia esto por tu usuario y repositorio
+  branch: main # O la rama donde tengas el contenido
+
+media_folder: "public/images" # Carpeta donde se subirán las imágenes
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/content/posts" # Carpeta donde guardamos los posts en Astro
+    create: true
+    slug: "{{slug}}" # El nombre del archivo se basará en el slug del post
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
