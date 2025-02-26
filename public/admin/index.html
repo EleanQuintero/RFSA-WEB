@@ -7,7 +7,24 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
+    <!-- Contenedor para el CMS -->
+    <div id="nc-root"></div>
+
+    <!-- Incluir Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/index.html"; // Asegurar correcta ruta en GitHub Pages
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
