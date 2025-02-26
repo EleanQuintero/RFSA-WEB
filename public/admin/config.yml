@@ -3,12 +3,10 @@ backend:
   repo: eleanquintero/RFSA-WEB
   branch: main
 
-  # Opciones que suelen usarse en Decap CMS para OAuth con GitHub
-  base_url: https://github.com
-  auth_endpoint: /login/oauth/authorize
-  github:
-      client_id: Ov23lisbcJBqw9zgfhhj
-      client_secret: 43ab5a990622db9a5e44716b95d385f2b372d2a0  
+# Parámetros para que Decap CMS use OAuth directo de GitHub:
+base_url: https://github.com
+auth_endpoint: /login/oauth/authorize
+app_id: Ov23lisbcJBqw9zgfhhj
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
