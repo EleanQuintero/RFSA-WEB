@@ -1,7 +1,12 @@
 backend:
   name: github
-  repo: EleanQuintero/RFSA-WEB # Cambia esto por tu usuario y repositorio
-  branch: main # O la rama donde tengas el contenido
+  repo: EleanQuintero/RFSA-WEB
+  branch: main
+  auth_scope: repo
+  base_url: https://github.com
+  auth_endpoint: /login/oauth/authorize
+  app_id: Ov23lisbcJBqw9zgfhhj # Aquí pones el Client ID generado
+
 
 media_folder: "public/images" # Carpeta donde se subirán las imágenes
 public_folder: "/images"
