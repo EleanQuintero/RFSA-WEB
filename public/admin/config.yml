@@ -1,25 +1,4 @@
-  backend:
-  name: github
-  repo: EleanQuintero/RFSA-WEB # Reemplaza con tu repositorio
-  branch: main
-  auth:
+       auth:
     github:
-      client_id: Ov23lisbcJBqw9zgfhhj  # Regístralo en GitHub
-      client_secret: 43ab5a990622db9a5e44716b95d385f2b372d2a0  # Regístralo en GitHub
-
-
-media_folder: "public/images" # Carpeta donde se subirán las imágenes
-public_folder: "/images"
-
-collections:
-  - name: "blog" # Usado en rutas, por ejemplo, /admin/collections/blog
-    label: "Blog" # Usado en la interfaz de usuario
-    folder: "src/content/blog" # La ruta a la carpeta donde se almacenan los documentos
-    create: true # Permitir a los usuarios crear nuevos documentos en esta colección
-    fields: # Los campos para cada documento, generalmente al principio
-       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-       - { label: "Title", name: "title", widget: "string" }
-       - { label: "Publish Date", name: "date", widget: "datetime" }
-       - { label: "Featured Image", name: "thumbnail", widget: "image" }
-       - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
-       - { label: "Body", name: "body", widget: "markdown" }
+      client_id: Ov23lisbcJBqw9zgfhhj  
+      client_secret: 43ab5a990622db9a5e44716b95d385f2b372d2a0  
