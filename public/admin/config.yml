@@ -1,8 +1,18 @@
 backend:
-  name: git-gateway
+  name: github
   repo: EleanQuintero/RFSA-WEB
   branch: main
   use_graphql: true
+
+  backend:
+  name: github
+  repo: EleanQuintero/RFSA-WEB # Reemplaza con tu repositorio
+  branch: main
+  auth:
+    github:
+      client_id: Ov23lisbcJBqw9zgfhhj  # Regístralo en GitHub
+      client_secret: 43ab5a990622db9a5e44716b95d385f2b372d2a0  # Regístralo en GitHub
+
 
 media_folder: "public/images" # Carpeta donde se subirán las imágenes
 public_folder: "/images"
