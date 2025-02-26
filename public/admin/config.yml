@@ -1,4 +1,25 @@
-       auth:
+backend:
+  name: github
+  repo: EleanQuintero/RFSA-WEB
+  branch: main
+  auth:
     github:
       client_id: Ov23lisbcJBqw9zgfhhj  
       client_secret: 43ab5a990622db9a5e44716b95d385f2b372d2a0  
+
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/posts"
+    create: true
+    slug: "{{year}}/{{month}}/{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+      
