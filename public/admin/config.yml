@@ -8,12 +8,14 @@ media_folder: "public/images" # Carpeta donde se subirán las imágenes
 public_folder: "/images"
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "src/content/posts" # Carpeta donde guardamos los posts en Astro
-    create: true
-    slug: "{{slug}}" # El nombre del archivo se basará en el slug del post
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Fecha", name: "date", widget: "datetime" }
-      - { label: "Contenido", name: "body", widget: "markdown" }
+  - name: "blog" # Usado en rutas, por ejemplo, /admin/collections/blog
+    label: "Blog" # Usado en la interfaz de usuario
+    folder: "src/content/blog" # La ruta a la carpeta donde se almacenan los documentos
+    create: true # Permitir a los usuarios crear nuevos documentos en esta colección
+    fields: # Los campos para cada documento, generalmente al principio
+       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+       - { label: "Title", name: "title", widget: "string" }
+       - { label: "Publish Date", name: "date", widget: "datetime" }
+       - { label: "Featured Image", name: "thumbnail", widget: "image" }
+       - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+       - { label: "Body", name: "body", widget: "markdown" }
