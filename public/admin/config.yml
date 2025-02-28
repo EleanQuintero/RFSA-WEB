@@ -1,25 +1,17 @@
 backend:
-  name: github
-  repo: eleanquintero/RFSA-WEB
+  name: git-gateway
   branch: main
-  base_url: https://github.com
-  auth_endpoint: /login/oauth/authorize
-  auth:
-    github:
-      client_id: Ov23lisbcJBqw9zgfhhj  
-      
+
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
   - name: "posts"
-    label: "Blog Posts"
-    folder: "src/posts"
+    label: "Posts"
+    folder: "src/content/posts"
     create: true
-    slug: "{{year}}/{{month}}/{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-      
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
