@@ -2,19 +2,19 @@
 import { getCollection } from 'astro:content';
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
 // Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import Grid from '@/components/Grid.astro';
+import Hero from '@/components/Hero.astro';
+import Icon from '@/components/Icon.astro';
+import PortfolioPreview from '@/components/PortfolioPreview.astro';
 
 // Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
-import AthleteTestimonial from '../components/AthleteTestimonial.astro';
+import ContactCTA from '@/components/ContactCTA.astro';
+import Skills from '@/components/Skills.astro';
+import AthleteTestimonial from '@/components/AthleteTestimonial.astro';
 
 
 // Content Fetching: List four most recent work projects
@@ -37,8 +37,8 @@ const projects = (await getCollection('work'))
 					title='Rehab for strength athletes'
 					tagline='Este proyecto nace con el propósito de brindar al atleta de fuerza un servicio de rehabilitación que comprenda las exigencias reales del deporte que practican. ¿Eres atleta de fuerza? ¿Tienes dolor? Busquemos una solución juntos '
 					align='center'
-					client:visible />
-			<Skills client:visible />
+				 />
+			<Skills />
 		</section>
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="block sm:hidden"  > 
@@ -46,8 +46,8 @@ const projects = (await getCollection('work'))
 					title='Rehab for strength athletes'
 					tagline='Este proyecto nace con el propósito de brindar al atleta de fuerza un servicio de rehabilitación que comprenda las exigencias reales del deporte que practican. ¿Eres atleta de fuerza? ¿Tienes dolor? Busquemos una solución juntos '
 					align='start' 
-					client:visible />
-				<Skills client:visible  />
+					 />
+				<Skills   />
 			</section>
 
 			<section class="section with-background with-cta lg:gap-4 p-4 m-auto ">
@@ -81,7 +81,7 @@ const projects = (await getCollection('work'))
 					<h3>testimonios</h3>
 				</header>
 				<div class="gallery m-auto">
-					<AthleteTestimonial client:visible />
+					<AthleteTestimonial  />
 				</div>
 
 				
@@ -95,7 +95,7 @@ const projects = (await getCollection('work'))
 <style>
 
 .first-header {
-    background: url('/public/assets/backgrounds/mobile.jpeg') center/cover no-repeat;
+    background: url('/assets/backgrounds/mobile.jpeg') center/cover no-repeat;
     width: 100%;
     min-height: 100vh; /* Altura completa de la ventana */
 }
@@ -111,7 +111,7 @@ const projects = (await getCollection('work'))
 	@media (min-width: 50em) {
 
 		.first-header {
-    background: url('/public/assets/backgrounds/cobblestone_street_a_journey_through_time-wallpaper-2560x1440.jpg') center/cover no-repeat;
+    background: url('/assets/backgrounds/cobblestone_street_a_journey_through_time-wallpaper-2560x1440.jpg') center/cover no-repeat;
     width: 100%;
     min-height: 100vh; /* Altura completa de la ventana */
 }

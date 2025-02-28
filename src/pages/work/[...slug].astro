@@ -1,12 +1,12 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
-import ContactCTA from '../../components/ContactCTA.astro';
-import Hero from '../../components/Hero.astro';
-import Icon from '../../components/Icon.astro';
-import Pill from '../../components/Pill.astro';
+import ContactCTA from '@/components/ContactCTA.astro';
+import Hero from '@/components/Hero.astro';
+import Icon from '@/components/Icon.astro';
+import Pill from '@/components/Pill.astro';
 import { render } from 'astro:content';
 
 interface Props {
@@ -34,7 +34,7 @@ const { Content } = await render(entry);
 			<header>
 				<div class="wrapper stack gap-2">
 					<a class="back-link" href="/work/"><Icon icon="arrow-left" /> Work</a>
-					<Hero title={entry.data.title} align="start">
+					<Hero tagline='' title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
