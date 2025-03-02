@@ -1,12 +1,15 @@
 ---
 import CallToAction from '@/components/CallToAction.astro';
 import Icon from '@/components/Icon.astro';
+
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
+
 ---
 
 <aside>
-	<h2>Interested in working together?</h2>
-	<CallToAction href="mailto:me@example.com">
-		Send Me a Message
+	<h2>Interesado en trabajar juntos?</h2>
+	<CallToAction href={`https://wa.me/${whatsappNumber}`}>
+		Envíame un mensaje
 		<Icon icon="paper-plane-tilt" size="1.2em" />
 	</CallToAction>
 </aside>
