@@ -1,7 +1,7 @@
 ---
 title: Lesiones y perdida de identidad
 publishDate: 2025-01-19 00:00:00
-img: /assets/stock-1.jpg
+img: /assets/posts/lesiones_perdidaidentidad.png
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
   El deporte fortalece la autoestima y la comunidad, pero diversificar nuestra identidad es clave para un bienestar integral.
