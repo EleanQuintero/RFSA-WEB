@@ -32,7 +32,7 @@ const projects = (await getCollection('posts'))
 			<header />
 			
 		</div>
-		<section class="hidden lg:block lg:p-3 lg:mt-20">
+		<section class="hidden lg:block lg:p-10 lg:mt-20">
 			<Hero 
 					title='Rehab for strength athletes'
 					tagline='Este proyecto nace con el propósito de brindar al atleta de fuerza un servicio de rehabilitación que comprenda las exigencias reales del deporte que practican. ¿Eres atleta de fuerza? ¿Tienes dolor? Busquemos una solución juntos '
@@ -52,8 +52,8 @@ const projects = (await getCollection('posts'))
 
 			<section class="section with-background with-cta lg:gap-4 p-4 m-auto ">
 				<header class="section-header stack gap-2 ">
-					<h3>Blog</h3>
-					<p>Aqui encontraras algunas de mis mejores publicaciones</p>
+					<h1>Blog</h1>
+					<h3>Aqui encontraras mis ultimas publicaciones</h3>
 				</header>
 
 				<div class="gallery">
@@ -181,9 +181,13 @@ const projects = (await getCollection('posts'))
 			grid-area: header;
 			font-size: var(--text-lg);
 		}
+		
+		.section-header h1 {
+			font-size: var(--text-3xl);
+		}
 
 		.section-header h3 {
-			font-size: var(--text-4xl);
+			font-size: var(--text-xl);
 		}
 
 		.with-cta .section-header {
