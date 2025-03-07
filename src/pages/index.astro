@@ -1,25 +1,22 @@
 ---
-import { getCollection } from "astro:content";
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 // Component Imports
-import CallToAction from "@/components/CallToAction.astro";
-import Grid from "@/components/Grid.astro";
+
 import Hero from "@/components/Hero.astro";
-import Icon from "@/components/Icon.astro";
 
 // Componentes de paginas
 import ContactCTA from "@/components/ContactCTA.astro";
 import Skills from "@/components/Skills.astro";
 import AthleteTestimonial from "@/components/AthleteTestimonial.astro";
-import PostsPreview from "@/components/PostsPreview.astro";
+
+import ServiceInfo from "@/components/ServiceInfo.astro";
+import BlogPreview from "@/components/BlogPreview.astro";
 
 // Listado que trae los posts mas recientes
-const projects = (await getCollection("posts"))
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 4);
+
 ---
 
 <BaseLayout>
@@ -27,43 +24,20 @@ const projects = (await getCollection("posts"))
     class="stack gap-20 lg:gap-48 bg-gradient-to-b from-gray-500 from-0% via-slate-700 via-50% to-gray-900 to-100%"
   >
     <div class="first-header wrapper mt-auto stack gap-8 lg:gap-20">
-      <header />
+      <header></header>
     </div>
     <section class="p-8 lg:block lg:p-10 lg:mt-20">
       <Hero
-        title="Rehab for strength athletes"
+        title="Rehab for Strength Athletes"
         tagline="Este proyecto nace con el propósito de brindar al atleta de fuerza un servicio de rehabilitación que comprenda las exigencias reales del deporte que practican. ¿Eres atleta de fuerza? ¿Tienes dolor? Busquemos una solución juntos "
         align="center"
       />
       <Skills />
     </section>
-    <main class="wrapper stack gap-20 lg:gap-48">
-      <section class="section with-background with-cta lg:gap-4 p-4 m-auto">
-        <header class="section-header stack gap-2">
-          <h1>Blog</h1>
-          <h3>Aqui encontraras mis ultimas publicaciones</h3>
-        </header>
-
-        <div class="gallery">
-          <Grid variant="offset">
-            {
-              projects.map((project) => (
-                <li>
-                  <PostsPreview project={project} />
-                </li>
-              ))
-            }
-          </Grid>
-        </div>
-
-        <div class="cta">
-          <CallToAction href="/posts/">
-            Ver todas las publicaciones
-            <Icon icon="arrow-right" size="1.2em" />
-          </CallToAction>
-        </div>
-      </section>
-
+    <main class="wrapper stack gap-20 lg:gap-30">
+      <ServiceInfo />
+      <BlogPreview />
+      
       <section class="section with-background bg-variant">
         <header class="section-header stack gap-2 lg:gap-4">
           <h1>Testimonios y casos de exito</h1>
@@ -115,30 +89,6 @@ const projects = (await getCollection("posts"))
     position: relative;
   }
 
-  .with-background::before {
-    --hero-bg: var(--bg-image-subtle-2);
-
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    left: 50%;
-    width: 100vw;
-    aspect-ratio: calc(2.25 / var(--bg-scale));
-    top: 0;
-    transform: translateY(-75%) translateX(-50%);
-    background:
-      url("/assets/backgrounds/noise.png") top center/220px repeat,
-      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-      var(--gray-999);
-    background-blend-mode: overlay, normal, normal, normal;
-    mix-blend-mode: var(--bg-blend-mode);
-    z-index: -1;
-  }
-
-  .with-background.bg-variant::before {
-    --hero-bg: var(--bg-image-subtle-1);
-  }
-
   .section-header {
     justify-self: center;
     text-align: center;
@@ -151,7 +101,6 @@ const projects = (await getCollection("posts"))
     font-size: var(--text-2xl);
     margin-top: 30px;
   }
-  
 
   @media (min-width: 50em) {
     .section {

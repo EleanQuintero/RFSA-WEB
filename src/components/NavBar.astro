@@ -4,154 +4,172 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 
 // Social media links
 const socialLinks = [
-  { icon: 'instagram-logo', url: 'https://www.instagram.com/adriraw' }
+  { icon: "instagram-logo", url: "https://www.instagram.com/adriraw" },
 ];
-
 
 // Get the current URL path to highlight the active link
 const currentPath = Astro.url.pathname;
 
 // Navigation items array - easy to add new sections
 const navItems = [
-  { label: 'Inicio', path: '/' },
-  { label: 'Blog', path: '/posts' },
-  { label: 'Sobre Mí', path: '/about' },
-  { label: 'Contacto', path: '/contact' },
+  { label: "Inicio", path: "/" },
+  { label: "Blog", path: "/posts" },
+  { label: "Sobre Mí", path: "/about" },
+  { label: "Contacto", path: "/contact" },
 ];
 ---
 
-<nav class="shadow-md  bg-gray-500 font-extrabold h-12  flex items-center justify-between w-full">
-  <div class=" mx-auto px-4 flex justify-between w-full">
-    <div class="flex items-center space-x-4">
-      <a href="/" class="text-xl font-bold">
-        <img class="w-12 h-12" src="/favicon.svg" alt=""></a>
-    </div>
+<nav
+  class="shadow-md bg-gray-500 font-extrabold h-12 flex items-center pb-3 justify-between w-full"
+>
+  <div class="mx-auto px-4 flex justify-between w-full">
+    <a href="/" class="flex items-center pt-2.5">
+      <img class="w-12 h-12" src="/favicon.svg" alt="" />
+      </a>
     <div class="relative flex items-center justify-center w-full">
-      <h6 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold w-full text-center text-white md:hidden">
+      <h6
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold w-full text-center text-white md:hidden"
+      >
         Rehab for strength athletes
-        </h6> 
-      
+      </h6>
+
       <div class="hidden md:flex items-center space-x-1">
-        {navItems.map(({ label, path }) => (
+        {
+          navItems.map(({ label, path }) => (
+            <a
+              href={path}
+              class:list={[
+                "py-4 px-2 font-medium transition duration-300 gap-1",
+                {
+                  "text-blue-500 border-b-2 border-blue-500":
+                    currentPath === path,
+                  "text-white hover:text-blue-500 hover:border-b-2 hover:border-blue-500":
+                    currentPath !== path,
+                },
+              ]}
+            >
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="hidden md:flex items-center">
+      <a href="https://instagram.com/adriraw" target="_blank" class="w-8 h-8">
+        <Icon
+          icon="instagram-logo"
+          color="--var(text-gray-500)"
+          size="2.5rem"
+          gradient
+        />
+      </a>
+    </div>
+  </div>
+
+  {/* Mobile Menu Button */}
+  <div class="md:hidden flex items-center">
+    <button
+      id="mobile-menu-button"
+      class="text-white hover:text-blue-500 focus:outline-none focus:text-blue-500 z-50"
+      aria-label="Toggle menu"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+{/* Mobile Menu */}
+<div
+  id="mobile-menu"
+  class="hidden md:hidden fixed top-0 left-0 right-0 bg-white z-40"
+  style="margin-top: 4rem;"
+>
+  <div class="flex flex-col shadow-lg rounded-b-lg">
+    {/* Navigation Links */}
+    <div class="border-b border-gray-100">
+      {
+        navItems.map(({ label, path }) => (
           <a
             href={path}
             class:list={[
-              'py-4 px-2 font-medium transition duration-300 gap-1',
+              "block px-6 py-4 text-lg font-medium transition duration-300 border-b border-gray-100 last:border-b-0",
               {
-                'text-blue-500 border-b-2 border-blue-500': currentPath === path,
-                'text-white hover:text-blue-500 hover:border-b-2 hover:border-blue-500': currentPath !== path,
+                "text-blue-500 bg-blue-50": currentPath === path,
+                "text-gray-500 hover:text-blue-500 hover:bg-gray-50":
+                  currentPath !== path,
               },
             ]}
           >
             {label}
           </a>
-        ))}
-      </div>
+        ))
+      }
     </div>
-    <div class="hidden md:flex items-center">
-      <a href="https://instagram.com/adriraw" target="_blank" class="w-8 h-8">
-        <Icon icon="instagram-logo" color="var(--accent-regular)" size="2.5rem" gradient />
-      </a>
 
-    </div>
-  </div>
-
- {/* Mobile Menu Button */}
- <div class="md:hidden flex items-center">
-  <button 
-    id="mobile-menu-button"
-    class="text-white hover:text-blue-500 focus:outline-none focus:text-blue-500 z-50"
-    aria-label="Toggle menu"
-  >
-    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path 
-        stroke-linecap="round" 
-        stroke-linejoin="round" 
-        stroke-width="2" 
-        d="M4 6h16M4 12h16M4 18h16"
-      />
-    </svg>
-  </button>
-</div>
-</div>
-</div>
-
-    {/* Mobile Menu */}
-    <div 
-      id="mobile-menu" 
-      class="hidden md:hidden fixed top-0 left-0 right-0 bg-white z-40"
-      style="margin-top: 4rem;"
-    >
-      <div class="flex flex-col shadow-lg rounded-b-lg">
-        {/* Navigation Links */}
-        <div class="border-b border-gray-100">
+    {/* Social Links and Dark Mode */}
+    <div class="px-6 py-4 bg-gray-50 rounded-b-lg">
+      <div class="flex justify-between items-center">
+        {/* Social Icons */}
+        <div class="flex space-x-4">
           {
-            navItems.map(({ label, path }) => (
+            socialLinks.map(({ icon, url }) => (
               <a
-                href={path}
-                class:list={[
-                  'block px-6 py-4 text-lg font-medium transition duration-300 border-b border-gray-100 last:border-b-0',
-                  {
-                    'text-blue-500 bg-blue-50': currentPath === path,
-                    'text-gray-500 hover:text-blue-500 hover:bg-gray-50': currentPath !== path,
-                  },
-                ]}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-500 hover:text-blue-500 transition duration-300"
               >
-                {label}
+                <Icon
+                  icon="instagram-logo"
+                  color="var(--accent-regular)"
+                  size="2.5rem"
+                  gradient
+                />
               </a>
             ))
           }
         </div>
 
-        {/* Social Links and Dark Mode */}
-        <div class="px-6 py-4 bg-gray-50 rounded-b-lg">
-          <div class="flex justify-between items-center">
-            {/* Social Icons */}
-            <div class="flex space-x-4">
-              {
-                socialLinks.map(({ icon, url }) => (
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-gray-500 hover:text-blue-500 transition duration-300"
-                  >
-                    <Icon icon="instagram-logo" color="var(--accent-regular)" size="2.5rem" gradient />
-                  </a>
-                ))
-              }
-            </div>
-
-    {/* Dark Mode Toggle */}
-    <div class="flex items-center justify-center theme-toggle">
-				<ThemeToggle />
+        {/* Dark Mode Toggle */}
+        <div class="flex items-center justify-center theme-toggle">
+          <ThemeToggle />
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-</div>
-</nav>
 
 <script>
-// Toggle mobile menu
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = mobileMenuButton?.querySelector('svg');
-const body = document.body;
+  // Toggle mobile menu
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = mobileMenuButton?.querySelector("svg");
+  const body = document.body;
 
-mobileMenuButton?.addEventListener('click', () => {
-const isOpen = mobileMenu?.classList.toggle('hidden');
+  mobileMenuButton?.addEventListener("click", () => {
+    const isOpen = mobileMenu?.classList.toggle("hidden");
 
-// Prevent body scroll when menu is open
-if (!isOpen) {
-body.style.overflow = 'hidden';
-} else {
-body.style.overflow = '';
-}
+    // Prevent body scroll when menu is open
+    if (!isOpen) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "";
+    }
 
-// Change hamburger to X when menu is open
-if (menuIcon && !isOpen) {
-menuIcon.innerHTML = `
+    // Change hamburger to X when menu is open
+    if (menuIcon && !isOpen) {
+      menuIcon.innerHTML = `
 <path 
   stroke-linecap="round" 
   stroke-linejoin="round" 
@@ -159,8 +177,8 @@ menuIcon.innerHTML = `
   d="M6 18L18 6M6 6l12 12"
 />
 `;
-} else if (menuIcon) {
-menuIcon.innerHTML = `
+    } else if (menuIcon) {
+      menuIcon.innerHTML = `
 <path 
   stroke-linecap="round" 
   stroke-linejoin="round" 
@@ -168,6 +186,6 @@ menuIcon.innerHTML = `
   d="M4 6h16M4 12h16M4 18h16"
 />
 `;
-}
-});
+    }
+  });
 </script>
