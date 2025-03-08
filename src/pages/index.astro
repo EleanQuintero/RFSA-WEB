@@ -3,164 +3,27 @@
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-// Component Imports
-
-import Hero from "@/components/Hero.astro";
-
 // Componentes de paginas
 import ContactCTA from "@/components/ContactCTA.astro";
-import Skills from "@/components/Skills.astro";
-import AthleteTestimonial from "@/components/AthleteTestimonial.astro";
-
+import ServiceSkills from "@/components/ServiceSkills.astro";
 import ServiceInfo from "@/components/ServiceInfo.astro";
 import BlogPreview from "@/components/BlogPreview.astro";
-
-// Listado que trae los posts mas recientes
-
+import Testimonials from "@/components/Testimonials.astro";
+import MainHeader from "@/components/MainHeader.astro";
 ---
 
 <BaseLayout>
   <div
     class="stack gap-20 lg:gap-48 bg-gradient-to-b from-gray-500 from-0% via-slate-700 via-50% to-gray-900 to-100%"
   >
-    <div class="first-header wrapper mt-auto stack gap-8 lg:gap-20">
-      <header></header>
-    </div>
-    <section class="p-8 lg:block lg:p-10 lg:mt-20">
-      <Hero
-        title="Rehab for Strength Athletes"
-        tagline="Este proyecto nace con el propósito de brindar al atleta de fuerza un servicio de rehabilitación que comprenda las exigencias reales del deporte que practican. ¿Eres atleta de fuerza? ¿Tienes dolor? Busquemos una solución juntos "
-        align="center"
-      />
-      <Skills />
-    </section>
     <main class="wrapper stack gap-20 lg:gap-30">
+      <MainHeader />
+      <ServiceSkills />
       <ServiceInfo />
       <BlogPreview />
-      
-      <section class="section with-background bg-variant">
-        <header class="section-header stack gap-2 lg:gap-4">
-          <h1>Testimonios y casos de exito</h1>
-          <h3>
-            La experiencia de nuestros clientes en rehab for strength athletes:
-          </h3>
-        </header>
-        <div class="gallery m-auto">
-          <AthleteTestimonial />
-        </div>
-      </section>
+      <Testimonials />
     </main>
-
     <ContactCTA />
   </div>
 </BaseLayout>
 
-<style>
-  .first-header {
-    background: url("/assets/backgrounds/mobile.jpeg") center/cover no-repeat;
-    width: 100%;
-    min-height: 100vh; /* Altura completa de la ventana */
-  }
-
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  @media (min-width: 50em) {
-    .first-header {
-      background: url("/assets/backgrounds/cobblestone_street_a_journey_through_time-wallpaper-2560x1440.jpg")
-        center/cover no-repeat;
-      width: 100%;
-      min-height: 100vh; /* Altura completa de la ventana */
-    }
-  }
-
-  /* ====================================================== */
-
-  .section {
-    display: grid;
-    gap: 2rem;
-  }
-
-  .with-background {
-    position: relative;
-  }
-
-  .section-header {
-    justify-self: center;
-    text-align: center;
-    max-width: 80ch;
-    font-size: var(--text-md);
-    color: var(--gray-300);
-  }
-
-  .section-header h3 {
-    font-size: var(--text-2xl);
-    margin-top: 30px;
-  }
-
-  @media (min-width: 50em) {
-    .section {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "header header header header" "gallery gallery gallery gallery" "cta cta cta cta";
-      gap: 5rem;
-    }
-
-    .section.with-cta {
-      grid-template-areas: "header header header" "gallery gallery gallery gallery" "cta cta cta";
-    }
-
-    .section-header {
-      grid-area: header;
-      font-size: var(--text-lg);
-    }
-
-    .section-header h1 {
-      font-size: var(--text-3xl);
-    }
-
-    .section-header h3 {
-      font-size: var(--text-xl);
-    }
-
-    .with-cta .section-header {
-      justify-self: center;
-      text-align: center;
-    }
-
-    .gallery {
-      grid-area: gallery;
-      margin: auto;
-    }
-
-    .cta {
-      grid-area: cta;
-      justify-items: right;
-    }
-  }
-
-  /* ====================================================== */
-
-  .mention-card {
-    display: flex;
-    height: 7rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--gray-800);
-    border-radius: 1.5rem;
-    color: var(--gray-300);
-    background: var(--gradient-subtle);
-    box-shadow: var(--shadow-sm);
-  }
-
-  @media (min-width: 50em) {
-    .mention-card {
-      border-radius: 1.5rem;
-      height: 9.5rem;
-    }
-  }
-</style>
