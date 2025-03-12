@@ -4,73 +4,91 @@ import Hero from "./Hero.astro";
 import { iconsUrl } from "../lib/constants";
 ---
 
-<Hero
-  title="Metodologia de trabajo"
-  tagline="Estas seran las etapas de tu proceso en Rehab for Strength Atlethes"
-  align="center"
-/>
-<section
-  class="grid-cols-1 grid-rows-4 grid gap-8 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-5 p-8 h-full text-center"
->
+<section class="flex flex-col items-center justify-center p-8 lg:p-10 lg:mt-20">
+  <Hero
+    title="Metodologia de trabajo"
+    tagline="Estas seran las etapas de tu proceso en Rehab for Strength Atlethes"
+    align="center"
+  />
   <div
-    class="row-span-3 bg-gray-600 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8"
+    class="grid-cols-1 grid-rows-1 grid gap-8 lg:grid lg:grid-cols-2 lg:grid-rows-6 lg:gap-5 p-8 h-full text-center lg:mt-20"
   >
-    <h4>Valoración inicial por videollamada y sesión de educación en dolor</h4>
-    <p>
-      En primer lugar, realizaremos una videollamada a través de Google Meet u
-      otra plataforma, en la que utilizaremos preguntas, escalas y cuestionarios
-      para establecer una primera aproximación al diagnóstico y completar tu
-      historia clínica
-    </p>
-    <p>
-      Tras la entrevista inicial, dedicaremos parte de la llamada a realizar una
-      sesión de educación en dolor, donde te proporcionaré conocimientos
-      teórico-prácticos sobre tu problema y resolveré todas tus dudas.
-    </p>
-    <div class="flex flex-row items-center gap-3 justify-center">
-      {
-        iconsUrl.Step1.map((icon) => (
-          <img src={icon} class="w-12 H-12" alt="" />
-        ))
-      }
+    <div
+      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
+    >
+      <h4>
+        Valoración inicial por videollamada y sesión de educación en dolor
+      </h4>
+      <p>
+        En primer lugar, realizaremos una videollamada a través de Google Meet u
+        otra plataforma, en la que utilizaremos preguntas, escalas y
+        cuestionarios para establecer una primera aproximación al diagnóstico y
+        completar tu historia clínica
+      </p>
+      <p>
+        Tras la entrevista inicial, dedicaremos parte de la llamada a realizar
+        una sesión de educación en dolor, donde te proporcionaré conocimientos
+        teórico-prácticos sobre tu problema y resolveré todas tus dudas.
+      </p>
+      <div class="flex flex-row items-center gap-3 justify-center">
+        {
+          iconsUrl.Step1.map((icon) => (
+            <img src={icon} class="w-12 H-12" alt="" />
+          ))
+        }
+      </div>
     </div>
-  </div>
-  <div
-    class="row-span-3 bg-gray-600 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-4 gap-8"
-  >
-    <h4>Exploración física/valoración funcional</h4>
-    <p>
-      A través de test, mediciones y ejercicios con carga, confirmaremos o
-      descartaremos las hipótesis planteadas en la fase inicial de la
-      valoración.
-    </p>
-    <div class="flex flex-row items-center gap-3 justify-center">
-      {
-        iconsUrl.Step2.map((icon) => (
-          <img src={icon} class="w-12 H-12" alt="" />
-        ))
-      }
+    <div
+      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
+    >
+      <h4>Exploración física/valoración funcional</h4>
+      <p>
+        A través de test, mediciones y ejercicios con carga, confirmaremos o
+        descartaremos las hipótesis planteadas en la fase inicial de la
+        valoración.
+      </p>
+      <div class="flex flex-row items-center gap-3 justify-center">
+        {
+          iconsUrl.Step2.map((icon) => (
+            <img src={icon} class="w-12 H-12" alt="" />
+          ))
+        }
+      </div>
     </div>
-  </div>
-  <div
-    class="row-span-3 bg-gray-600 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-4 gap-8"
-  >
-    <h4>Contacto con el entrenador y planteamiento del trabajo</h4>
-    <p>
-      Identificada la causa del problema, contactaré con tu entrenador para
-      trabajar en conjunto y adaptar el entrenamiento según tus necesidades y
-      contexto. Además, te proporcionaré y justificaré la pauta de ejercicio que
-      utilizaremos como tratamiento.
-    </p>
-  </div>
-  <div
-    class="row-span-3 bg-gray-600 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-4 gap-8"
-  >
-    <h4>Seguimiento y revisiones</h4>
-    <p>
-      El seguimiento será continuo, con contacto vía WhatsApp, registros en
-      excel y revisiones semanales. Esto nos permitirá hacer ajustes en el
-      entrenamiento y la pauta de ejercicios según tu evolución
-    </p>
+    <div
+      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
+    >
+      <h4>Contacto con el entrenador y planteamiento del trabajo</h4>
+      <p>
+        Identificada la causa del problema, contactaré con tu entrenador para
+        trabajar en conjunto y adaptar el entrenamiento según tus necesidades y
+        contexto. Además, te proporcionaré y justificaré la pauta de ejercicio
+        que utilizaremos como tratamiento.
+      </p>
+      <div class="flex flex-row items-center gap-3 justify-center">
+        {
+          iconsUrl.Step3.map((icon) => (
+            <img src={icon} class="w-12 H-12" alt="" />
+          ))
+        }
+      </div>
+    </div>
+    <div
+      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
+    >
+      <h4>Seguimiento y revisiones</h4>
+      <p>
+        El seguimiento será continuo, con contacto vía WhatsApp, registros en
+        excel y revisiones semanales. Esto nos permitirá hacer ajustes en el
+        entrenamiento y la pauta de ejercicios según tu evolución
+      </p>
+      <div class="flex flex-row items-center gap-3 justify-center">
+        {
+          iconsUrl.Step4.map((icon) => (
+            <img src={icon} class="w-12 H-12" alt="" />
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>
