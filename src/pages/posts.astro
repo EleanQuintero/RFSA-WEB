@@ -1,39 +1,41 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import ContactCTA from '@/components/ContactCTA.astro';
-import PostsPreview from '@/components/PostsPreview.astro';
-import Hero from '@/components/Hero.astro';
-import Grid from '@/components/Grid.astro';
+import ContactCTA from "@/components/ContactCTA.astro";
+import PostsPreview from "@/components/PostsPreview.astro";
+import Hero from "@/components/Hero.astro";
+import Grid from "@/components/Grid.astro";
 
-const projects = (await getCollection('posts')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+const projects = (await getCollection("posts")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
 
 <BaseLayout
-	title=""
-	description=""
+  title="Blog | Rehab for strengh atlethes"
+  description="Aqyuí encontraras mis ultimas publicaciones, ademas de informacion de alto valor para atletas de fuerza"
 >
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="Forma de trabajo"
-				tagline="texto a redactar."
-				align="start"
-			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PostsPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
-		</main>
-		<ContactCTA />
-	</div>
+  <div
+    class="stack gap-20 lg:gap-48 bg-gradient-to-b from-gray-500 from-0% via-slate-700 via-50% to-gray-900 to-100%"
+  >
+    <main class="wrapper stack mt-20 justify-center items-center gap-8">
+      <Hero
+        title="Blog | Mis ultimas publicaciones"
+        tagline="Aqui encontraras mis ultimas publicaciones"
+        align="start"
+      />
+      <Grid variant="offset">
+        {
+          projects.map((project) => (
+            <li>
+              <PostsPreview project={project} />
+            </li>
+          ))
+        }
+      </Grid>
+    </main>
+    <ContactCTA />
+  </div>
 </BaseLayout>
