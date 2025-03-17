@@ -11,25 +11,24 @@ tags:
   - Comunidad
 ---
 
-## Level-two heading
+> "El deporte nos aporta mucho más que salud física: refuerza nuestra autoestima, nos hace sentir parte de una comunidad, potencia nuestra autoeficacia y nos brinda un propósito claro"
 
-> Tell me and I forget. Teach me and I remember. Involve me and I learn.
+A lo largo de estos años trabajando con atletas que pasan por un proceso de lesión, he observado como muchos de ellos enfrentan una pérdida de identidad al volcar todo en el rendimiento deportivo, dejando de lado otros aspectos de su vida.
 
-Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+### Perdida de identidad
 
-Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel quam elementum pulvinar etiam non.
+Cuando el “vaso” de nuestra identidad está lleno solo de nuestra faceta deportiva y este se rompe, nos enfrentamos al aislamiento, la frustración y una sensación de vacío difícil de digerir.
 
-### Level-three heading
+### Aspectos claves
 
-Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl pretium fusce.
+Es fundamental diversificar: construir y cuidar relaciones fuera del ámbito deportivo, explorar nuevas pasiones, construir una identidad más completa y desarrollar un mayor autoestima cultivándonos personal y profesionalmente.
 
-### Level-three heading
+La clave está en no definirnos únicamente por nuestro rendimiento. Equilibrar nuestras áreas de interés nos hace resilientes y nos prepara para la adversidad. Invierte en ti mismo, busca nuevas perspectivas y, si lo necesitas, no dudes en apoyarte en un profesional para afrontar el camino. Tu bienestar va más allá de los logros deportivos y tu rendimiento.
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
+De hecho, si amas tu deporte, es lo más óptimo de cara a mantenerte estable para superar problemas, durar muchos años en él y explotar todo tu potencial.
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
+#### Conclusiones
 
-#### Level-four heading
-
-- We noted this
-- And also this other point
+- Diversificar relaciones fuera del deporte
+- Explorar nuevas pasiones
+- No definirnos únicamente por nuestro rendimiento.
