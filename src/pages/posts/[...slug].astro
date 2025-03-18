@@ -51,19 +51,19 @@ const { Content } = await render(entry);
       </div>
     </header>
     <main class="wrapper">
-      <div class="stack gap-10 content">
+      <div class="pb-24 gap-5 content">
         {
           entry.data.img && (
             <img src={entry.data.img} alt={entry.data.img_alt || ""} />
           )
         }
-        <div class="grid grid-cols-2 gap-x-10">
-          <div class="content">
-            <Content />
-          </div>
-          <div class="">
-            <img src={entry.data.img} alt="" />
-          </div>
+      </div>
+      <div class="grid grid-cols-2 gap-x-5">
+        <div class="content">
+          <Content />
+        </div>
+        <div class="">
+          <img src={entry.data.img} alt="" />
         </div>
       </div>
     </main>
@@ -99,7 +99,7 @@ const { Content } = await render(entry);
     }
 
     .content {
-      max-width: 65ch;
+      max-width: 55ch;
       margin-inline: auto;
     }
 
