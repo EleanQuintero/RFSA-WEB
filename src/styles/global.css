@@ -6,7 +6,7 @@
 	--gray-50: #141925;
 	--gray-100: #283044;
 	--gray-200: #3d4663;
-	--gray-300: #505d84;
+	--gray-300: #d1d5dc;
 	--gray-400: #6474a2;
 	--gray-500: #8490b5;
 	--gray-600: #a3acc8;
@@ -17,14 +17,23 @@
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
 	--gray-999: #ffffff;
 
-	--accent-light: #c561f6;
-	--accent-regular: #7611a6;
-	--accent-dark: #1c0056;
-	--accent-overlay: hsla(280, 89%, 67%, 0.33);
+	--metal-blue-800: #ffffff;
+
+	--accent-light: #414046;
+	--accent-regular: #8e8e90;
+	--accent-dark: #0e1317;
+	--accent-overlay: hsla(0, 0%, 0%, 0.33);
 	--accent-subtle-overlay: var(--accent-overlay);
 	--accent-text-over: var(--gray-999);
 
 	--link-color: var(--accent-regular);
+
+	/*Border colors*/
+	--border-color: #99a1af;
+
+	/*Navbar Theme*/
+	--navbar: #ffffff;
+	--text-color: #000000;
 
 	/* Gradients */
 	--gradient-stop-1: var(--accent-light);
@@ -39,7 +48,7 @@
 	);
 	--gradient-accent-orange: linear-gradient(
 		150deg,
-		#2173a3,
+		#414046,
 		var(--accent-regular),
 		var(--accent-dark)
 	);
@@ -72,6 +81,11 @@
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+
+	/* Background color*/
+	.bg-color-ligth{
+		@apply bg-gradient-to-b from-gray-200 from-0% via-slate-300 via-50% to-gray-100 to-100%
+	}
 }
 
 :root.theme-dark {
@@ -80,7 +94,7 @@
 	--gray-50: #f3f4f7;
 	--gray-100: #e3e6ee;
 	--gray-200: #b6b6b8;
-	--gray-300: #a3acc8;
+	--gray-300: #4a5565;
 	--gray-400: #8490b5;
 	--gray-500: #6474a2;
 	--gray-600: #56575a;
@@ -97,6 +111,13 @@
 	--metal-blue-700: #203a4a;
 	--metal-blue-600: #2b4a5a;
 	--metal-blue-500: #365a6a;
+
+	/*Border colors*/
+	--border-color: #364153;
+
+	/*Navbar Theme*/
+	--navbar: #6a7282;
+	--text-color: #ffffff;
 
 	/* Acentos y efectos heredados */
 	--accent-light-blue: #041c45;
@@ -127,6 +148,12 @@
 		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
 	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+
+	/* Background color*/
+	.bg-color-dark {
+		@apply bg-gradient-to-b from-gray-500 from-0% via-slate-700 via-50% to-gray-900 to-100%
+	}
+
 }
 
 

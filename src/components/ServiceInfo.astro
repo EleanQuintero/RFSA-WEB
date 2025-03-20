@@ -2,6 +2,7 @@
 import Hero from "./Hero.astro";
 
 import { iconsUrl } from "../lib/constants";
+import ServiceInfoBox from "./ServiceInfoBox.astro";
 ---
 
 <section class="flex flex-col items-center justify-center p-8 lg:p-10 lg:mt-20">
@@ -13,9 +14,7 @@ import { iconsUrl } from "../lib/constants";
   <div
     class="grid-cols-1 grid-rows-1 grid gap-8 lg:grid lg:grid-cols-2 lg:grid-rows-6 lg:gap-5 p-8 h-full text-center lg:mt-20"
   >
-    <div
-      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
-    >
+    <ServiceInfoBox>
       <h4>
         Valoración inicial por videollamada y sesión de educación en dolor
       </h4>
@@ -37,10 +36,8 @@ import { iconsUrl } from "../lib/constants";
           ))
         }
       </div>
-    </div>
-    <div
-      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
-    >
+    </ServiceInfoBox>
+    <ServiceInfoBox>
       <h4>Exploración física/valoración funcional</h4>
       <p>
         A través de test, mediciones y ejercicios con carga, confirmaremos o
@@ -54,10 +51,8 @@ import { iconsUrl } from "../lib/constants";
           ))
         }
       </div>
-    </div>
-    <div
-      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
-    >
+    </ServiceInfoBox>
+    <ServiceInfoBox>
       <h4>Contacto con el entrenador y planteamiento del trabajo</h4>
       <p>
         Identificada la causa del problema, contactaré con tu entrenador para
@@ -72,10 +67,8 @@ import { iconsUrl } from "../lib/constants";
           ))
         }
       </div>
-    </div>
-    <div
-      class="row-span-3 bg-gray-600 border-gray-700 border-4 border-solid rounded-2xl flex flex-col justify-center items-center text-center p-8 gap-8 hover:border-[#152a3a] hover:cursor-pointer"
-    >
+    </ServiceInfoBox>
+    <ServiceInfoBox>
       <h4>Seguimiento y revisiones</h4>
       <p>
         El seguimiento será continuo, con contacto vía WhatsApp, registros en
@@ -89,6 +82,6 @@ import { iconsUrl } from "../lib/constants";
           ))
         }
       </div>
-    </div>
+    </ServiceInfoBox>
   </div>
 </section>
