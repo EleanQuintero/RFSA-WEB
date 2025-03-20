@@ -1,0 +1,27 @@
+---
+import ContactCTA from "@/components/ContactCTA.astro";
+import Hero from "@/components/Hero.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Tienda | Rehab for strength athletes"
+  description="Productos formativos y de asesoramiento para maximizar tu rendimiento y prevenir lesiones."
+>
+  <section class="stack gap-20 bg-color-dark bg-color-ligth">
+    <header>
+      <div class="flex flex-col items-center justify-center mt-20">
+        <Hero title="Productos" align="center">
+          <p class="description">
+            Aqui encontraras los productos formativos y de asesoramiento que te
+            ayudaran a maximizar tu rendimiento y prevenir lesiones.
+          </p>
+        </Hero>
+      </div>
+    </header>
+    <main class="wrapper">
+      <div class="grid grid-cols-2 gap-x-5"></div>
+    </main>
+    <ContactCTA />
+  </section>
+</BaseLayout>
