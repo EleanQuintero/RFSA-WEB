@@ -6,6 +6,7 @@
 import MainHead from "@/components/MainHead.astro";
 import Footer from "@/components/Footer.astro";
 import NavBar from "@/components/NavBar.astro";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string | undefined;
@@ -17,7 +18,11 @@ const { title, description } = Astro.props;
 
 <html lang="es">
   <head>
-    <MainHead title={title ?? ""} description={description ?? ""} />
+    <MainHead
+      title={title ?? "Rehab for Strengh Atlethes"}
+      description={description ?? ""}
+    />
+    <ClientRouter />
   </head>
   <body>
     <div class="stack">
