@@ -13,10 +13,10 @@ import Hero from "@/components/Hero.astro";
     <main class="wrapper stack gap-20 p-10 lg:gap-30 about">
       <Hero
         title="Sobre mi"
-        tagline="En esta seccion conoceras mi historia y como nace rehab for strengh atlethes"
+        tagline="En esta sección conocerás mi historia y como nace rehab for strengh atlethes"
         align="center"
       >
-        <div class="flex flex-row justify-center gap-20">
+        <div class="flex flex-col-reverse lg:flex-row justify-center gap-20">
           <img
             class="w-[480px] h-[480px] object-cover transition-transform duration-300 ease-in-out hover:scale-110"
             src="/assets/Adrian_Manzanares.jpg"
@@ -30,43 +30,52 @@ import Hero from "@/components/Hero.astro";
         </div>
       </Hero>
 
-      <section class="flex flex-col max-w-[65ch]">
+      <section class="flex flex-col">
         <section>
           <h2 class="section-title">¿Quien soy?</h2>
-          <div class="content">
-            <p></p>
+          <div class="content prose">
+            <p>
+              Mi nombre es Adrián Manzanares, soy fisioterapeuta especializado
+              en deportes de fuerza y atleta de powerlifting. Me dedico a ayudar
+              a deportistas de fuerza a recuperarse de lesiones y a mejorar su
+              rendimiento.
+            </p>
           </div>
         </section>
         <h2 class="section-title">Mi historia</h2>
-        <div class="content">
+        <div class="content prose">
           <p>
-            Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a>
-            makes people happy. Sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum
-            vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra
-            diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus
-            in ornare.
+            Empecé a competir en powerlifting el año 2015 y a lo largo de los
+            años he combinado mi pasión por el deporte de fuerza con la práctica
+            clínica, la investigación y la divulgación en fisioterapia.
           </p>
           <p>
-            Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget
-            gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat
-            pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh
-            venenatis cras sed felis eget velit. Id diam vel quam elementum
-            pulvinar etiam non.
+            Cómo profesional, he tenido el placer de trabajar con atletas de
+            diversas disciplinas a nivel nacional e internacional, pudiendo
+            acompañarlos en su proceso de rehabilitación y que pudieran expresar
+            su mejor rendimiento en competición.
           </p>
         </div>
       </section>
       <section>
         <h2 class="section-title">Educación y formación</h2>
-        <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
+        <div class="content prose">
+          <p>
+            En cuanto a la parte académica, he cursado un Máster en el abordaje
+            del dolor neuromusculoesquelético a parte de otras formaciones
+            regladas en el ámbito de la neurociencia del dolor y la readaptación
+            física.
+          </p>
+          <p>
+            Este año 2025, comenzaré mis estudios de Doctorado en Ciencias del
+            Deporte abordando la epidemiología de lesiones en atletas de fuerza
+            como principal línea de investigación.
+          </p>
         </div>
-      </section>
-      <section>
-        <h2 class="section-title">Habilidades</h2>
-        <div class="content">
-          <p>officia unde omnis</p>
-        </div>
+        <h3 class="mt-7">
+          Espero poder acompañarte y ayudarte durante tu proceso de
+          rehabilitación
+        </h3>
       </section>
     </main>
 
@@ -99,18 +108,16 @@ import Hero from "@/components/Hero.astro";
     color: var(--gray-0);
   }
 
-  .content :global(a) {
-    text-decoration: 1px solid underline transparent;
-    text-underline-offset: 0.25em;
-    transition: text-decoration-color var(--theme-transition);
-  }
-
-  .content :global(a:hover),
-  .content :global(a:focus) {
-    text-decoration-color: currentColor;
+  .content {
+    font-size: var(--text-lg);
+    color: var(--gray-200);
   }
 
   @media (min-width: 50em) {
+    .content {
+      font-size: var(--text-lg);
+      max-width: 75ch;
+    }
     .about {
       display: flex;
       flex-direction: column;
