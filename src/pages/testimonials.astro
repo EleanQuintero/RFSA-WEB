@@ -1,0 +1,50 @@
+---
+import { testimonials } from "../lib/testimonials";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import ContactCTA from "@/components/ContactCTA.astro";
+import PostsPreview from "@/components/PostsPreview.astro";
+import Hero from "@/components/Hero.astro";
+import Grid from "@/components/Grid.astro";
+import ServiceInfoBox from "@/components/ServiceInfoBox.astro";
+---
+
+<BaseLayout
+  title="Casos de éxito | Rehab for strengh atlethes"
+  description="Documentando los casos de éxito en rehab for strengh atlhetes"
+>
+  <div class="stack gap-20 lg:gap-48 bg-color-dark bg-color-ligth">
+    <main class="wrapper stack mt-20 justify-center items-center gap-8">
+      <Hero
+        title="Casos de éxito"
+        tagline="Estos atletas confiaron en rehab for strengh atlethes y sus resultados hablan por si solos"
+        align="start"
+      />
+      <Grid variant="offset">
+        {
+          testimonials.map((testimonial) => (
+            <li class="p-12">
+              <a href={testimonial.url}>
+                <ServiceInfoBox>
+                  <h3>{testimonial.name}</h3>
+                  <p>{testimonial.sport}</p>
+                  <div class="flex flex-row items-center justify-center">
+                    <p>{testimonial.testimonial}</p>
+                    <img
+                      transition:name={`img-${testimonial.name}`}
+                      src={testimonial.image}
+                      alt={`Foto de ${testimonial.name}`}
+                      class="w-36 h-36 rounded-lg"
+                    />
+                  </div>
+                </ServiceInfoBox>
+              </a>
+            </li>
+          ))
+        }
+      </Grid>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>
