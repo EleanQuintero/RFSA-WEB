@@ -1,0 +1,52 @@
+---
+import ContactCTA from "@/components/ContactCTA.astro";
+import Hero from "@/components/Hero.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"testimonials">;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection("testimonials");
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title=`Casos de éxito | ${entry.data.name}`>
+  <main class="flex stack flex-col gap-20 mt-20 justify-center items-center">
+    <header>
+      <Hero align="center" title=`Caso de éxito | ${entry.data.name}` />
+    </header>
+    <section class="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-x-4">
+      <div class="content wrapper prose prose-lg mx-auto">
+        <Content />
+      </div>
+      <div class="w-96 h-auto">
+        <img
+          transition:name={`img-${entry.data.name}`}
+          src={entry.data.img}
+          alt=`Fotografía de ${entry.data.name}`
+          class=""
+        />
+      </div>
+    </section>
+    <section class="w-full">
+      <ContactCTA />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .content {
+    max-width: 55ch;
+    margin-inline: auto;
+  }
+</style>

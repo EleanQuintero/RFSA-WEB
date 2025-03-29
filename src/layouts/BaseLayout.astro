@@ -24,7 +24,7 @@ const { title, description } = Astro.props;
     />
     <ClientRouter />
   </head>
-  <body>
+  <body class="bg-color-dark bg-color-ligth">
     <div class="stack">
       <NavBar />
       <slot />
@@ -32,3 +32,19 @@ const { title, description } = Astro.props;
     </div>
   </body>
 </html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in-scroll').forEach((el) => observer.observe(el));
+});
+</script>
