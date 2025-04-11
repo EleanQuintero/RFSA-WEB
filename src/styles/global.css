@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 /* Global variables */
+
+.hidden-card {
+    display: none !important;
+}
+
 :root {
 	/* Colors */
 	--gray-0: #090b11;
