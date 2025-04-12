@@ -6,8 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactCTA from "@/components/ContactCTA.astro";
 import PostsPreview from "@/components/PostsPreview.astro";
 import Hero from "@/components/Hero.astro";
-import Grid from "@/components/Grid.astro";
-import Filters from "@/components/Filters.astro";
+import ReactFilters from "@/components/react/ReactFilters";
 
 const projects = (await getCollection("posts")).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -28,22 +27,8 @@ const categories = [
         tagline="Aquí encontraras mis ultimas publicaciones"
         align="start"
       />
-      <Filters categories={categories} activeCategory="all" />
-      <div class="gallery grid grid-cols-3 list-none">
-        {
-          projects.map((project) => (
-            <li>
-              <PostsPreview project={project} />
-            </li>
-          ))
-        }
-      </div>
+      <ReactFilters posts={projects} categories={categories} client:load />
     </main>
     <ContactCTA />
   </div>
 </BaseLayout>
-
-<script>
-  import { setupFilters } from "@/lib/scripts/filters";
-  setupFilters();
-</script>
