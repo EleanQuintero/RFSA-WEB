@@ -2,7 +2,7 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const randomstring = require('randomstring')
 
-export default async function handler(_: any, res: { setHeader: (arg0: string, arg1: string) => void; redirect: (arg0: number, arg1: string) => void }){
+export default async function handler(_, res) {
     const clientID = process.env.OAUTH_CLIENT_ID
     const clientSecret = process.env.OUTH_CLIENT_SECRET
 
