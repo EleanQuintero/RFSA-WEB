@@ -1,11 +1,11 @@
 import {AuthorizationCode} from 'simple-oauth2'
 import cookie from 'cookie'
 
-export default async function handler(req: { query: { code: any; state: any }; headers: { cookie: any; host: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string }): any; new(): any } }; send: (arg0: string) => any }){
+export default async function handler(req, res) {
     try {
-        const {code, state} = req.query
+        const { code, state } = req.query;
 
-        const cookies = cookie.parse(req.headers.cookie || '')
+        const cookies = cookie.parse(req.headers.cookie || '');
         const expectedState = cookies.oauth_state
         
         if(!state || !expectedState || state !== expectedState){
