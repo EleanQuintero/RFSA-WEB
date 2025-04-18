@@ -7,27 +7,18 @@
   </head>
   <body>
     <script>
-      window.CMS_MANUAL_INIT = true;
-      window.decapInit = function() {
-        const config = {
-          backend: {
-            name: 'github',
-            repo: 'tu-usuario/tu-repositorio',
-            branch: 'main',
-            base_url: window.location.origin,
-            auth_endpoint: 'api/auth'
-          },
-          // resto de tu configuración
-          media_folder: "public/images/uploads",
-          public_folder: "/images/uploads",
-          collections: [
-            // tus colecciones
-          ]
-        };
-        
-        CMS.init({ config });
-      };
+      // Configuración opcional o personalización después de iniciar el CMS
+      window.addEventListener('load', function() {
+        CMS.registerEventListener({
+          name: 'preSave',
+          handler: function(props) {
+            // Personalización opcional antes de guardar
+            console.log('Guardando:', props.entry.get('data'));
+            return props.entry;
+          }
+        });
+      });
     </script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onload="window.decapInit()"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
