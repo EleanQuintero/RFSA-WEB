@@ -23,12 +23,9 @@ export default defineConfig({
     base: '/',
     integrations: [react()],
     session: {
-        // Configuración para usar Redis como almacenamiento de sesiones
         driver: 'redis',
         options: {
-            // Estas variables se configurarán automáticamente si usas la integración de Upstash con Vercel
-            url: process.env.UPSTASH_REDIS_REST_URL,
-            token: process.env.UPSTASH_REDIS_REST_TOKEN,
+          url: process.env.REDIS_URL,
         },
-    },
+      },
 });
