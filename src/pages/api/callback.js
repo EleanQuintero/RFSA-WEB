@@ -50,7 +50,7 @@ export const GET = async ({ url, session, request }) => {
 
     // Limpiar el estado de la sesión después de usarlo
     try {
-      await session.update((data) => {
+      await session.unset((data) => {
         delete data.oauth_state;
         return data;
       });

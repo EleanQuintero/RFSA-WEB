@@ -15,17 +15,5 @@ export default defineConfig({
     outDir: './dist',
     base: '/',
     integrations: [react()],
-    session: {
-        driver: 'cookie',
-        options: {
-            secret: process.env.SESSION_SECRET || import.meta.env.SESSION_SECRET || 'una_clave_secreta_muy_larga_y_aleatoria',
-            cookie: {
-                httpOnly: true,
-                path: '/',
-                secure: true,
-                sameSite: 'none',
-                maxAge: 60 * 60 * 24 * 7,
-            }
-        }
-    },
+    session: true,
 });

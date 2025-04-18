@@ -21,7 +21,7 @@ export const GET = async ({ redirect, session }) => {
     
     try {
       // Guardar el estado en la sesión en lugar de una cookie
-      await session.update((data) => {
+      await session.set((data) => {
         data.oauth_state = state;
         return data;
       });
