@@ -1,18 +1,34 @@
 import { AuthorizationCode } from 'simple-oauth2';
 
-export const GET = async ({ url, cookies, request }) => {
+export const GET = async ({ url, session, request }) => {
   try {
     const code = url.searchParams.get('code');
     const state = url.searchParams.get('state');
-
-    const expectedState = cookies.get('oauth_state')?.value;
+    
+    // Obtener el estado guardado en la sesión
+    const sessionData = await session.get();
+    const expectedState = sessionData.oauth_state;
 
     if (!state || !expectedState || state !== expectedState) {
-      return new Response(JSON.stringify({ error: 'estados no coinciden' }), {
+      // Para depuración, puedes registrar información adicional
+      console.log('Estado recibido:', state);
+      console.log('Estado esperado:', expectedState);
+      
+      return new Response(JSON.stringify({ 
+        error: 'estados no coinciden',
+        recibido: state,
+        esperado: expectedState
+      }), {
         status: 403,
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    // Limpiar el estado de la sesión después de usarlo
+    await session.update((data) => {
+      delete data.oauth_state;
+      return data;
+    });
 
     const client = new AuthorizationCode({
       client: {
@@ -28,11 +44,17 @@ export const GET = async ({ url, cookies, request }) => {
 
     const tokenParams = {
       code: code || '',
-      redirect_uri: `https://${request.headers.get('host')}/api/auth/callback`,
+      redirect_uri: `https://${request.headers.get('host')}/api/callback`,
     };
 
     const tokenResponse = await client.getToken(tokenParams);
     const access_token = tokenResponse.token.access_token;
+    
+    // Opcional: guarda el token en la sesión para futuros usos
+    await session.update((data) => {
+      data.github_token = access_token;
+      return data;
+    });
 
     const script = `
       <script>
@@ -65,7 +87,7 @@ export const GET = async ({ url, cookies, request }) => {
 
   } catch (error) {
     console.error('Error durante la autenticación:', error);
-    return new Response(JSON.stringify({ error: 'Error de autenticación' }), {
+    return new Response(JSON.stringify({ error: 'Error de autenticación', details: error.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
