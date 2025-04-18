@@ -16,17 +16,21 @@ export const GET = async ({ url, session, request }) => {
       return new Response('Error: Parámetros de OAuth incompletos', { status: 400 });
     }
     
-    // Obtener el estado guardado en la sesión
-    const sessionData = await session.get();
-    console.log('Datos de sesión recuperados:', JSON.stringify(sessionData));
+    // Obtener el estado guardado en la sesión - método correcto
+    const expectedState = await session.get('oauth_state');
+    console.log('Estado OAuth recuperado:', expectedState);
     
-    const expectedState = sessionData?.oauth_state;
-
     if (!expectedState) {
       console.error('Error: No se encontró el estado OAuth en la sesión');
+      // Obtener todos los datos para depuración
+      const allSessionData = {};
+      for (const key of await session.keys()) {
+        allSessionData[key] = await session.get(key);
+      }
+      
       return new Response(JSON.stringify({ 
         error: 'estado no encontrado en la sesión',
-        sesionData: sessionData
+        sesionData: allSessionData
       }), {
         status: 403,
         headers: { 'Content-Type': 'application/json' },
@@ -48,14 +52,11 @@ export const GET = async ({ url, session, request }) => {
       });
     }
 
-    // Limpiar el estado de la sesión después de usarlo
+    // Limpiar el estado de la sesión después de usarlo - método correcto
     try {
-      await session.unset((data) => {
-        delete data.oauth_state;
-        return data;
-      });
+      await session.delete('oauth_state');
     } catch (sessionError) {
-      console.error('Error al actualizar la sesión (eliminando oauth_state):', sessionError);
+      console.error('Error al eliminar oauth_state de la sesión:', sessionError);
       // Continuamos a pesar del error para no interrumpir el flujo
     }
 
@@ -88,12 +89,9 @@ export const GET = async ({ url, session, request }) => {
     const tokenResponse = await client.getToken(tokenParams);
     const access_token = tokenResponse.token.access_token;
     
-    // Guardar el token en la sesión para futuros usos
+    // Guardar el token en la sesión para futuros usos - método correcto
     try {
-      await session.update((data) => {
-        data.github_token = access_token;
-        return data;
-      });
+      await session.set('github_token', access_token);
     } catch (sessionError) {
       console.error('Error al guardar el token en la sesión:', sessionError);
       // Continuamos a pesar del error para no interrumpir el flujo
