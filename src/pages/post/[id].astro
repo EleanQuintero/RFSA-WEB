@@ -10,7 +10,7 @@ import Icon from "../../components/Icon.astro";
 import Pill from "../../components/Pill.astro";
 import CallToAction from "../../components/CallToAction.astro";
 
-
+export const prerender = true
 export async function getStaticPaths() {
   const posts = await getCollection("posts"); 
 
