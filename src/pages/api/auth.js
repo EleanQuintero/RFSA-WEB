@@ -44,8 +44,3 @@ export const GET = async ({ redirect, session }) => {
     return new Response(`Error interno: ${error.message}`, { status: 500 });
   }
 };
-
-// También soportamos POST para compatibilidad con diferentes clientes
-export const POST = async (context) => {
-  return GET(context);
-};
