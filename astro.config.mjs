@@ -18,7 +18,7 @@ export default defineConfig({
     session: {
         driver: 'cookie',
         options: {
-            secret: import.meta.env.SESSION_SECRET || 'una_clave_secreta_muy_larga_y_aleatoria',
+            secret: process.env.SESSION_SECRET || import.meta.env.SESSION_SECRET || 'una_clave_secreta_muy_larga_y_aleatoria',
             cookie: {
                 httpOnly: true,
                 path: '/',
