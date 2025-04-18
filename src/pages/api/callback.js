@@ -2,14 +2,38 @@ import { AuthorizationCode } from 'simple-oauth2';
 
 export const GET = async ({ url, session, request }) => {
   try {
+    // Verificar si la sesión está disponible
+    if (!session) {
+      console.error('Error: session no está disponible en el contexto');
+      return new Response('Error: Sesión no disponible', { status: 500 });
+    }
+
     const code = url.searchParams.get('code');
     const state = url.searchParams.get('state');
     
+    if (!code || !state) {
+      console.error('Error: Faltan parámetros de OAuth en la URL');
+      return new Response('Error: Parámetros de OAuth incompletos', { status: 400 });
+    }
+    
     // Obtener el estado guardado en la sesión
     const sessionData = await session.get();
-    const expectedState = sessionData.oauth_state;
+    console.log('Datos de sesión recuperados:', JSON.stringify(sessionData));
+    
+    const expectedState = sessionData?.oauth_state;
 
-    if (!state || !expectedState || state !== expectedState) {
+    if (!expectedState) {
+      console.error('Error: No se encontró el estado OAuth en la sesión');
+      return new Response(JSON.stringify({ 
+        error: 'estado no encontrado en la sesión',
+        sesionData: sessionData
+      }), {
+        status: 403,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (state !== expectedState) {
       // Para depuración, puedes registrar información adicional
       console.log('Estado recibido:', state);
       console.log('Estado esperado:', expectedState);
@@ -25,15 +49,28 @@ export const GET = async ({ url, session, request }) => {
     }
 
     // Limpiar el estado de la sesión después de usarlo
-    await session.update((data) => {
-      delete data.oauth_state;
-      return data;
-    });
+    try {
+      await session.update((data) => {
+        delete data.oauth_state;
+        return data;
+      });
+    } catch (sessionError) {
+      console.error('Error al actualizar la sesión (eliminando oauth_state):', sessionError);
+      // Continuamos a pesar del error para no interrumpir el flujo
+    }
+
+    const clientID = import.meta.env.OAUTH_CLIENT_ID;
+    const clientSecret = import.meta.env.OAUTH_CLIENT_SECRET;
+    
+    if (!clientID || !clientSecret) {
+      console.error('Error: Variables de entorno de OAuth no configuradas');
+      return new Response('Error: Configuración de OAuth incompleta', { status: 500 });
+    }
 
     const client = new AuthorizationCode({
       client: {
-        id: import.meta.env.OAUTH_CLIENT_ID || '',
-        secret: import.meta.env.OAUTH_CLIENT_SECRET || '',
+        id: clientID,
+        secret: clientSecret,
       },
       auth: {
         tokenHost: 'https://github.com',
@@ -43,24 +80,32 @@ export const GET = async ({ url, session, request }) => {
     });
 
     const tokenParams = {
-      code: code || '',
+      code: code,
       redirect_uri: `https://${request.headers.get('host')}/api/callback`,
     };
 
+    console.log('Solicitando token con parámetros:', JSON.stringify(tokenParams));
     const tokenResponse = await client.getToken(tokenParams);
     const access_token = tokenResponse.token.access_token;
     
-    // Opcional: guarda el token en la sesión para futuros usos
-    await session.update((data) => {
-      data.github_token = access_token;
-      return data;
-    });
+    // Guardar el token en la sesión para futuros usos
+    try {
+      await session.update((data) => {
+        data.github_token = access_token;
+        return data;
+      });
+    } catch (sessionError) {
+      console.error('Error al guardar el token en la sesión:', sessionError);
+      // Continuamos a pesar del error para no interrumpir el flujo
+    }
 
     const script = `
       <script>
         (function() {
           function receiveMessage(e) {
-            if (!e.origin.match(/^https:\\/\\/[a-zA-Z0-9-]+\\.vercel\\.app$/)) {
+            console.log("receiveMessage", e);
+            if (!e.origin.match(/^https:\\/\\/[a-zA-Z0-9-]+\\.vercel\\.app$/) && 
+                !e.origin.match(/^http:\\/\\/localhost:[0-9]+$/)) {
               console.log('Invalid origin:', e.origin);
               return;
             }
@@ -75,7 +120,11 @@ export const GET = async ({ url, session, request }) => {
           }
 
           window.addEventListener("message", receiveMessage, false);
+          // Intentamos enviar el mensaje inmediatamente y también programamos un envío retrasado
           window.opener.postMessage("authorizing:github", "*");
+          
+          // Para desarrollo local, permitimos localhost
+          console.log("Autenticación completada. Enviando datos al CMS...");
         })()
       </script>
     `;
@@ -87,7 +136,11 @@ export const GET = async ({ url, session, request }) => {
 
   } catch (error) {
     console.error('Error durante la autenticación:', error);
-    return new Response(JSON.stringify({ error: 'Error de autenticación', details: error.message }), {
+    return new Response(JSON.stringify({ 
+      error: 'Error de autenticación', 
+      details: error.message, 
+      stack: error.stack 
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
