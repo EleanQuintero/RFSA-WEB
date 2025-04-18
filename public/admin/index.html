@@ -30,8 +30,12 @@
                 slug: "{{slug}}",
                 fields: [
                   { label: "Título", name: "title", widget: "string" },
-                  { label: "Fecha", name: "date", widget: "datetime" },
-                  { label: "Cuerpo", name: "body", widget: "markdown" }
+                  { label: "Descripción", name: "description", widget: "string" },
+                  { label: "Fecha de publicación", name: "publishDate", widget: "datetime" },
+                  { label: "Etiquetas", name: "tags", widget: "list" },
+                  { label: "Imagen", name: "img", widget: "image" },
+                  { label: "Texto alternativo de imagen", name: "img_alt", widget: "string", required: false },
+                  { label: "Contenido", name: "body", widget: "markdown" }
                 ]
               }
             ]
