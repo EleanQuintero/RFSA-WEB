@@ -1,32 +1,34 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
 
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 
-import ContactCTA from "@/components/ContactCTA.astro";
-import Hero from "@/components/Hero.astro";
-import Icon from "@/components/Icon.astro";
-import Pill from "@/components/Pill.astro";
-import { render } from "astro:content";
-import CallToAction from "@/components/CallToAction.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-interface Props {
-  entry: CollectionEntry<"posts">;
-}
+import ContactCTA from "../../components/ContactCTA.astro";
+import Hero from "../../components/Hero.astro";
+import Icon from "../../components/Icon.astro";
+import Pill from "../../components/Pill.astro";
+import CallToAction from "../../components/CallToAction.astro";
+
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
-  return posts.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  const posts = await getCollection("posts"); 
+
+  return posts.map((post) => ({
+    params: { id: post.id},
+    props: { post }
+  }))
 }
 
-const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { post } = Astro.props
+const { data } = post
+const { title, description, img, publishDate, tags, img_alt } = data
+
+const { Content } = await render(post)
+
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout title={title} description={description}>
   <section class="stack gap-20 bg-color-dark bg-color-ligth">
     <header>
       <div class="flex flex-col items-center justify-center mt-20">
@@ -40,10 +42,10 @@ const { Content } = await render(entry);
             >
           </CallToAction>
         </div>
-        <Hero tagline="" title={entry.data.title} align="center">
-          <p class="description">{entry.data.description}</p>
+        <Hero tagline="" title={title} align="center">
+          <p class="description">{description}</p>
           <div class="tags">
-            {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+            {tags.map((t) => <Pill>{t}</Pill>)}
           </div>
         </Hero>
       </div>
@@ -55,9 +57,9 @@ const { Content } = await render(entry);
         </div>
         <div class="w-[50%] items-center lg:w-[70%]" >
           <img
-            transition:name=`img-${entry.data.title}`
-            src={entry.data.img}
-            alt=""-
+            transition:name=`img-${title}`
+            src={img}
+            alt={img_alt}
           />
         </div>
       </div>

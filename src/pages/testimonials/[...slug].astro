@@ -10,6 +10,7 @@ interface Props {
   entry: CollectionEntry<"testimonials">;
 }
 
+
 export async function getStaticPaths() {
   const posts = await getCollection("testimonials");
   return posts.map((entry) => ({

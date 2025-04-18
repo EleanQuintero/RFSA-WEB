@@ -49,7 +49,7 @@ const ReactFilters: React.FC<ReactFiltersProps> = ({ posts, categories }) => {
         {filteredPosts.map((post) => (
           <a 
             key={post.id} 
-            href={`/posts/${post.id}/`}
+            href={`/post/${post.id}/`}
             className="post-item block bg-[var(--gray-900)] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-sm w-full"
           >
             {post.data.img && (
