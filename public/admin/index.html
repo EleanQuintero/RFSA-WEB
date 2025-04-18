@@ -7,18 +7,13 @@
   </head>
   <body>
     <script>
-      // Configuración opcional o personalización después de iniciar el CMS
-      window.addEventListener('load', function() {
-        CMS.registerEventListener({
-          name: 'preSave',
-          handler: function(props) {
-            // Personalización opcional antes de guardar
-            console.log('Guardando:', props.entry.get('data'));
-            return props.entry;
-          }
+      window.CMS_MANUAL_INIT = true;
+      window.decapInit = function() {
+        CMS.init({
+          config_file: 'config.yml' // Especifica el nombre del archivo de configuración
         });
-      });
+      };
     </script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onload="window.decapInit()"></script>
   </body>
 </html>
