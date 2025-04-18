@@ -8,12 +8,37 @@
   <body>
     <script>
       window.CMS_MANUAL_INIT = true;
-      window.decapInit = function() {
+      window.addEventListener('load', function() {
         CMS.init({
-          config_file: '/admin/config.yml' // Especifica el nombre del archivo de configuración
+          config: {
+            backend: {
+              name: "github",
+              repo: "EleanQuintero/RFSA-WEB",
+              base_url: "https://rfsa-web.vercel.app/",
+              auth_endpoint: "api/auth",
+              api_root: "https://api.github.com/",
+              branch: "main"
+            },
+            media_folder: "public/uploads",
+            public_folder: "/uploads",
+            collections: [
+              {
+                name: "posts",
+                label: "Posts",
+                folder: "src/content/posts",
+                create: true,
+                slug: "{{slug}}",
+                fields: [
+                  { label: "Título", name: "title", widget: "string" },
+                  { label: "Fecha", name: "date", widget: "datetime" },
+                  { label: "Cuerpo", name: "body", widget: "markdown" }
+                ]
+              }
+            ]
+          }
         });
-      };
+      });
     </script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onload="window.decapInit()"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
