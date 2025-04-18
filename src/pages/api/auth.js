@@ -20,11 +20,8 @@ export const GET = async ({ redirect, session }) => {
     const state = randomstring.generate(32);
     
     try {
-      // Guardar el estado en la sesión en lugar de una cookie
-      await session.set((data) => {
-        data.oauth_state = state;
-        return data;
-      });
+      // Guardar el estado directamente en la sesión
+      await session.set('oauth_state', state);
     } catch (sessionError) {
       console.error('Error actualizando la sesión:', sessionError);
       return new Response(`Error en la sesión: ${sessionError.message}`, { status: 500 });
