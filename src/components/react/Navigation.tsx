@@ -32,15 +32,15 @@ export default function Navigation({
 
   return (
     <>
-      <nav className="shadow-md bg-[var(--navbar)] fixed top-0 z-10 font-extrabold h-12 grid grid-cols-3 grid-rows-1 items-center pb-3 justify-between w-full">
+      <nav className="bg-[var(--navbar)] fixed top-0 z-10 font-extrabold h-12 grid grid-cols-3 grid-rows-1 pb-3 justify-between w-full">
         <div className="mx-auto px-4 flex justify-baseline w-full">
           <a href="/" className="flex items-center pt-2.5">
             <img className="w-12 h-12" src="/favicon.svg" alt="" />
           </a>
         </div>
 
-        <div className="relative flex items-center justify-center w-full">
-          <h6 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold w-full text-center text-[var(--text-color)] md:hidden">
+        <div className="flex items-center justify-center w-full h-full">
+          <h6 className="whitespace-nowrap font-extrabold w-full text-center text-[var(--text-color)] md:hidden flex items-center justify-center h-full">
             Rehab for strength athletes
           </h6>
 
