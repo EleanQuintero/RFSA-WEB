@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useThemeStore } from '@/stores/themeStore';
 
 // Creamos un componente Icon simplificado para usar en nuestro ThemeToggle
 interface IconProps {
@@ -35,40 +36,18 @@ const Icon: React.FC<IconProps> = ({ icon }) => {
 };
 
 const ThemeToggle: React.FC = () => {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, toggleTheme } = useThemeStore();
 
-  // Función para verificar si actualmente está en modo oscuro
-  const checkIsDark = (): boolean => {
-    if (typeof document !== 'undefined') {
-      return document.documentElement.classList.contains('theme-dark');
-    }
-    return false;
-  };
-
-  // Función para establecer el tema
-  const setTheme = (dark: boolean) => {
-    if (typeof document !== 'undefined') {
-      document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-      setIsDark(dark);
-    }
-  };
-
-  // Inicializar el estado del tema al cargar el componente
+  // Efecto para aplicar la clase al HTML cuando cambia el tema
   useEffect(() => {
-    setIsDark(checkIsDark());
-  }, []);
-
-  // Manejador para alternar el tema
-  const toggleTheme = () => {
-    setTheme(!isDark);
-  };
+    document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('theme-dark');
+  }, [theme]);
 
   return (
     <div className="theme-toggle">
       <button
         onClick={toggleTheme}
-        aria-pressed={isDark}
+        aria-pressed={theme === 'dark'}
         style={{
           display: 'flex',
           border: 0,
@@ -81,7 +60,7 @@ const ThemeToggle: React.FC = () => {
       >
         <span className="sr-only">Dark theme</span>
         <span
-          className={`icon light ${isDark ? '' : 'active'}`}
+          className={`icon light ${theme === 'dark' ? '' : 'active'}`}
           style={{
             zIndex: 1,
             position: 'relative',
@@ -90,7 +69,7 @@ const ThemeToggle: React.FC = () => {
             width: '2rem',
             height: '2rem',
             fontSize: '1rem',
-            color: isDark ? 'var(--accent-overlay)' : 'var(--accent-text-over)'
+            color: theme === 'dark' ? 'var(--accent-overlay)' : 'var(--accent-text-over)'
           }}
         >
           <Icon icon="sun" />
@@ -102,13 +81,13 @@ const ThemeToggle: React.FC = () => {
               inset: 0,
               backgroundColor: 'var(--accent-regular)',
               borderRadius: '999rem',
-              transform: isDark ? 'translateX(100%)' : 'none',
+              transform: theme === 'dark' ? 'translateX(100%)' : 'none',
               transition: 'transform var(--theme-transition), color var(--theme-transition)'
             }}
           />
         </span>
         <span
-          className={`icon dark ${isDark ? 'active' : ''}`}
+          className={`icon dark ${theme === 'dark' ? 'active' : ''}`}
           style={{
             zIndex: 1,
             position: 'relative',
@@ -117,7 +96,7 @@ const ThemeToggle: React.FC = () => {
             width: '2rem',
             height: '2rem',
             fontSize: '1rem',
-            color: isDark ? 'var(--accent-text-over)' : 'var(--accent-overlay)',
+            color: theme === 'dark' ? 'var(--accent-text-over)' : 'var(--accent-overlay)',
             transition: 'color var(--theme-transition)'
           }}
         >

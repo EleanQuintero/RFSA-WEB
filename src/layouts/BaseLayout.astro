@@ -7,6 +7,7 @@ import MainHead from "@/components/MainHead.astro";
 import Footer from "@/components/Footer.astro";
 import NavBar from "@/components/NavBar.astro";
 import { ClientRouter } from "astro:transitions";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 interface Props {
   title?: string | undefined;
@@ -25,17 +26,12 @@ const { title, description } = Astro.props;
     <ClientRouter />
   </head>
   <body class="bg-color-dark bg-color-ligth">
-    <div class="stack">
-      <NavBar />
-      <slot />
-      <Footer />
-    </div>
-  </body><script>
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else if (theme === "light") {
-      document.documentElement.classList.add("light");
-    }
-  </script>
+    <ThemeProvider client:load>
+      <div class="stack">
+        <NavBar />
+        <slot />
+        <Footer />
+      </div>
+    </ThemeProvider>
+  </body>
 </html>
