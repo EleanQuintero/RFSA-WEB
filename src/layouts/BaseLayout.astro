@@ -30,5 +30,12 @@ const { title, description } = Astro.props;
       <slot />
       <Footer />
     </div>
-  </body>
+  </body><script>
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (theme === "light") {
+      document.documentElement.classList.add("light");
+    }
+  </script>
 </html>

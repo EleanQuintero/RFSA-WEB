@@ -8,7 +8,7 @@ interface Props {
 const { data, id } = Astro.props.project;
 ---
 
-<a class="card" href={`/posts/${id}`}>
+<a class="card" href={`/post/${id}`}>
   <span class="title">{data.tags[0]}</span>
   <img
     src={data.img}
