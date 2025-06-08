@@ -16,9 +16,9 @@ import MainHeader from "@/components/MainHeader.astro";
   description="Pagina Inicial de Rehab for strengh atlethes"
 >
   <div class="stack gap-10 lg:gap-20 bg-color-dark bg-color-ligth">
-    <main class="wrapper gap-10 lg:gap-30">
-      <MainHeader />
-      <ServiceSkills />
+    <main id="main" class="wrapper gap-10 lg:gap-30">
+      <MainHeader id="header" />
+      <ServiceSkills id="service" />
       <ServiceInfo />
       <BlogPreview />
       <Testimonials />
@@ -26,3 +26,54 @@ import MainHeader from "@/components/MainHeader.astro";
     <ContactCTA />
   </div>
 </BaseLayout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  // Registrar los plugins
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // Esperar a que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Primera animación - Header
+    gsap.to("#header .desktop", {
+      scale: 2,
+      z: 500,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#header",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+        markers: true,
+        pin: true,
+        anticipatePin: 1,
+      }
+    });
+
+    // Segunda animación - Service
+    gsap.fromTo("#service", 
+      {
+        scale: 0.8,
+        autoAlpha: 0,
+        y: 50
+      },
+      {
+        scale: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#service",
+          start: "top 80%",
+          end: "center center",
+          scrub: 0.5,
+          markers: true,
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+</script>

@@ -1,17 +1,28 @@
-<header class="first-header wrapper stack gap-8 lg:gap-20">
-  <img
-    src="/public/assets/backgrounds/desktop.webp"
-    alt=""
-    class="hidden lg:block w-full h-auto"
-  />
-  <img
-    src="/public/assets/backgrounds/mobile.webp"
-    alt=""
-    class="block w-full h-auto object-cover lg:hidden"
-  />
-</header>
+---
+const { id } = Astro.props;
+---
+
+<div class="header-container">
+  <header id={id} class="first-header wrapper stack gap-8 lg:gap-20">
+    <img
+      src="/public/assets/backgrounds/desktop.webp"
+      alt=""
+      class="desktop hidden lg:block w-full h-auto"
+    />
+    <img
+      src="/public/assets/backgrounds/mobile.webp"
+      alt=""
+      class="block w-full h-auto object-cover lg:hidden"
+    />
+  </header>
+</div>
 
 <style>
+  .header-container {
+    overflow: hidden;
+    position: relative;
+  }
+  
   .first-header {
     max-width: 100%;
     width: 100%;
