@@ -22,7 +22,7 @@ importers:
         version: 0.5.16(tailwindcss@4.1.8)
       '@tailwindcss/vite':
         specifier: 4.1.8
-        version: 4.1.8(vite@6.3.4(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.7.1))
+        version: 4.1.8(vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.7.1))
       '@types/react':
         specifier: 19.1.1
         version: 19.1.1
@@ -41,6 +41,9 @@ importers:
       decap-cms-app:
         specifier: 3.6.2
         version: 3.6.2(@types/hoist-non-react-statics@3.3.6)(@types/node@22.14.1)(@types/react@19.1.1)(graphql@15.10.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      gsap:
+        specifier: ^3.13.0
+        version: 3.13.0
       ioredis:
         specifier: ^5.6.1
         version: 5.6.1
@@ -2188,6 +2191,9 @@ packages:
   gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
+
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
 
   h3@1.15.1:
     resolution: {integrity: sha512-+ORaOBttdUm1E2Uu/obAyCguiI7MbBvsLTndc3gyK3zU+SYLoZXlyCP9Xgy0gikkGufFLTZXCXD6+4BsufnmHA==}
@@ -5350,12 +5356,12 @@ snapshots:
       postcss-selector-parser: 6.0.10
       tailwindcss: 4.1.8
 
-  '@tailwindcss/vite@4.1.8(vite@6.3.4(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.7.1))':
+  '@tailwindcss/vite@4.1.8(vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.7.1))':
     dependencies:
       '@tailwindcss/node': 4.1.8
       '@tailwindcss/oxide': 4.1.8
       tailwindcss: 4.1.8
-      vite: 6.3.4(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.7.1)
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -6858,6 +6864,8 @@ snapshots:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
+
+  gsap@3.13.0: {}
 
   h3@1.15.1:
     dependencies:
