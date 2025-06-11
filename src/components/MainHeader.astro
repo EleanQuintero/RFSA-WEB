@@ -1,45 +1,35 @@
 ---
-const { id } = Astro.props;
+import RFSADesktopBg from "public/assets/backgrounds/RFSADesktopBg.webp"
+import  RFSAMobileBg from "public/assets/backgrounds/RFSAMobileBg.webp"
+import  RFSALogo from "public/assets/backgrounds/AdriLogoWhite.png"
 ---
 
-<div class="header-container">
-  <header class="header first-header wrapper stack gap-8 lg:gap-20">
-    <img
-      src="/public/assets/backgrounds/desktop.webp"
-      alt=""
-      class="desktop hidden lg:block w-full h-auto"
-    />
-    <img
-      src="/public/assets/backgrounds/mobile.webp"
-      alt=""
-      class="desktop block w-full h-auto object-cover lg:hidden"
-    />
+  <header class="header header-container first-header wrapper stack gap-8 lg:gap-20">
+      <picture id="hero-background" class=" scale-110 relative hidden lg:block h-screen overflow-hidden">
+        <img
+          src={RFSADesktopBg.src}
+          alt=""
+          id="hero-desktop"
+          class=" w-full h-full object-cover"
+        />
+        <img
+          src={RFSALogo.src}
+          alt="Logo"
+          id="hero-logo-desktop"
+          class=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto max-w-[70%] max-h-[70%] object-contain"
+        />
+      </picture>
+    <picture id="hero-background" class="h-screen overflow-hidden block lg:hidden">
+      <img
+        src={RFSAMobileBg.src}
+        alt=""
+        id="hero-mobile"
+        class="w-full h-full object-cover"
+      />
+    </picture>
   </header>
-</div>
 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  document.addEventListener('DOMContentLoaded', () => {
-    gsap.to(".desktop", {
-      scale: 1.5,
-      z: 200,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: ".header",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        markers: true,
-        pin: true,
-        anticipatePin: 1,
-      }
-    });
-  });
-</script>
 
 <style>
   .header-container {
