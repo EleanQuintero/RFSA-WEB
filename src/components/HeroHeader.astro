@@ -1,0 +1,104 @@
+---
+import MainHeader from "@/components/MainHeader.astro";
+---
+
+<section class="header-container relative" id="hero">
+  <!-- Fondo del hero -->
+  <div id="hero-background" class="absolute inset-0 z-0 bg-cover bg-center"></div>
+
+  <!-- El logo-máscara que revela el contenido debajo -->
+  <div id="logo-mask" class="absolute inset-0 z-10"></div>
+
+  <!-- Contenido real (logo completo o texto) que se ve a través de la máscara -->
+  <MainHeader />
+</section>
+
+<style>
+  .header-container {
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+    margin-bottom: 0;
+  }
+
+  #hero-background {
+    z-index: 0;
+  }
+
+  #logo-mask {
+    background: white;
+    mask-image: url("/favicon.svg");
+    mask-position: center 25%;
+    mask-repeat: no-repeat;
+    mask-size: clamp(5000vh, 3500%, 0vh);
+    opacity: 0;
+    z-index: 2;
+  }
+</style> 
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { SplitText} from "gsap/SplitText";
+    import { masterTl, initAnimations } from "../scripts/animations";
+  
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+    
+    // Aseguramos que el código se ejecute después de que el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {   
+      // Inicializamos las animaciones
+      initAnimations();
+      
+      // Timeline general para otras animaciones
+      const tl = gsap.timeline({
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#hero",
+          scrub: 1,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          start: "top top",
+          end: "+=100%",
+          id: "hero-timeline",
+        }
+      })
+
+      // Añadimos nuestra timeline a la timeline maestra
+      masterTl.add(tl)
+    
+      // Animación inicial
+      tl.from("#hero-background", {
+        scale: 1.1,
+        duration: 1.5,
+      })
+      .to("#hero-logo-desktop", {
+        opacity: 0,
+        duration: 1,
+      }, "<")
+      .to(
+          "#logo-mask",
+          {
+            maskSize: "clamp(20vh, 25%, 30vh)",
+            opacity: 1,
+            duration: 1,
+          },
+          0.15
+        )
+        .to(
+          "#hero-logo-desktop",
+          {
+            opacity: 0,
+            duration: 1
+          },
+          0.4
+        )
+        .to("#logo-mask", {
+          opacity: 0,
+          duration: 1
+        }, "+=0.3");
+
+      // Forzamos un refresh de ScrollTrigger
+      ScrollTrigger.refresh();
+    });
+</script>
