@@ -2,10 +2,9 @@
 import Hero from "./Hero.astro";
 import Skills from "./Skills.astro";
 
-const { id } = Astro.props;
 ---
 
-<section id={id} class=" p-8 lg:block lg:p-10 lg:mt-40">
+<section id="service-hero" class=" p-8 lg:block lg:p-10 lg:mt-40">
   <Hero
     className="hero-text"
     title="Rehab for Strength Athletes"
@@ -17,15 +16,54 @@ const { id } = Astro.props;
 
 <script>
   import { gsap } from "gsap";
- import { SplitText} from "gsap/SplitText"
- import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+  import { masterTl } from "../scripts/animations";
 
   gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  const splitText = new SplitText(".hero-text", {
-    type: "words"
-  })
+  // Aseguramos que el código se ejecute después de que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('ServiceSkills: DOM cargado, iniciando animaciones');
 
-  
+    const splitText = new SplitText(".hero-text", {
+      type: "words"
+    });
+
+    // Timeline para las animaciones de ServiceSkills
+    const serviceTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#service-hero",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        scrub: 2.5,
+      }
+    });
+
+    serviceTl.from(splitText.words, {
+      duration: 1.5,
+      y: 10,
+      stagger: 0.1,
+      filter: "blur(10px)",
+      autoAlpha: 0,
+      ease: "power2.inOut",
+      onStart: () => console.log('ServiceSkills: Animación de texto iniciada')
+    })
+    .from("#service-box", {
+      autoAlpha: 0,
+      duration: 1.2,
+      ease: "power2.inout",
+      x: -200
+    })
+
+    // Añadimos nuestra timeline a la timeline maestra
+    masterTl.add(serviceTl,">"); // El ">" asegura que esta animación comience después de la anterior
+
+    // Forzamos un refresh de ScrollTrigger
+    ScrollTrigger.refresh();
+  });
 </script>
 
