@@ -24,8 +24,6 @@ import Skills from "./Skills.astro";
 
   // Aseguramos que el código se ejecute después de que el DOM esté listo
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('ServiceSkills: DOM cargado, iniciando animaciones');
-
     const splitText = new SplitText(".hero-text", {
       type: "words"
     });
@@ -50,7 +48,6 @@ import Skills from "./Skills.astro";
       filter: "blur(10px)",
       autoAlpha: 0,
       ease: "power2.inOut",
-      onStart: () => console.log('ServiceSkills: Animación de texto iniciada')
     })
     .from("#service-box", {
       autoAlpha: 0,
