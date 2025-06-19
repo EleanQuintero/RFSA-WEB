@@ -1,12 +1,13 @@
 ---
 interface Props {
 	variant?: 'offset' | 'small';
+	className: string
 }
 
-const { variant } = Astro.props;
+const { variant, className } = Astro.props;
 ---
 
-<ul class:list={['grid', { offset: variant === 'offset', small: variant === 'small' }]}>
+<ul  class={className} class:list={['grid', { offset: variant === 'offset', small: variant === 'small' }]}>
 	<slot />
 </ul>
 
@@ -42,7 +43,7 @@ const { variant } = Astro.props;
 
 		/* Shift first item in each row vertically to create staggered effect. */
 		.grid.offset > :global(:nth-child(odd)) {
-			transform: translateY(var(--row-offset));
+		
 		}
 
 		/* If last row contains only one item, display it in the second column. */

@@ -6,7 +6,7 @@ import Skills from "./Skills.astro";
 
 <section id="service-hero" class=" p-8 lg:block lg:p-10 lg:mt-40">
   <Hero
-    className="hero-text"
+    className="hero-text mt-20"
     title="Rehab for Strength Athletes"
     tagline="Este proyecto nace con el propósito de brindar al atleta de fuerza un servicio de rehabilitación que comprenda las exigencias reales del deporte que practican. ¿Eres atleta de fuerza? ¿Tienes dolor? Busquemos una solución juntos "
     align="center"
@@ -24,8 +24,6 @@ import Skills from "./Skills.astro";
 
   // Aseguramos que el código se ejecute después de que el DOM esté listo
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('ServiceSkills: DOM cargado, iniciando animaciones');
-
     const splitText = new SplitText(".hero-text", {
       type: "words"
     });
@@ -50,12 +48,11 @@ import Skills from "./Skills.astro";
       filter: "blur(10px)",
       autoAlpha: 0,
       ease: "power2.inOut",
-      onStart: () => console.log('ServiceSkills: Animación de texto iniciada')
     })
     .from("#service-box", {
       autoAlpha: 0,
       duration: 1.2,
-      ease: "power2.inout",
+      ease: "power2.inOut",
       x: -200
     })
 

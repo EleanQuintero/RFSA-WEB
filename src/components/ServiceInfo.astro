@@ -5,14 +5,15 @@ import { iconsUrl } from "../lib/constants";
 import ServiceInfoBox from "./ServiceInfoBox.astro";
 ---
 
-<section class="flex flex-col items-center justify-center p-8 lg:p-10 lg:mt-20">
+<section id="service-info" class="flex flex-col items-center justify-center p-8 lg:p-10 lg:mt-20">
   <Hero
     title="Metodología de trabajo"
     tagline="Estas serán las etapas de tu proceso en Rehab for Strength Atlethes"
     align="center"
+    className="service-hero mt-20"
   />
   <div
-    class="grid-cols-1 grid-rows-1 grid gap-8 lg:grid lg:grid-cols-2 lg:grid-rows-6 lg:gap-5 p-8 h-full text-center lg:mt-20"
+    class="info-boxes grid-cols-1 grid-rows-1 grid gap-8 lg:grid lg:grid-cols-2 lg:grid-rows-6 lg:gap-5 p-8 h-full text-center lg:mt-20"
   >
     <ServiceInfoBox>
       <h4>
@@ -85,3 +86,62 @@ import ServiceInfoBox from "./ServiceInfoBox.astro";
     </ServiceInfoBox>
   </div>
 </section>
+
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+  import { masterTl } from "../scripts/animations";
+
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const splitText = new SplitText(".service-hero", {
+      type: "words"
+    });
+
+    const serviceInfoTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#service-info",
+          start: "top top",
+          end: "+=100%",
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          scrub: 2.5,
+        }
+      });
+  
+      serviceInfoTL.from(splitText.words, {
+      duration: 2,
+      y: -20,
+      stagger: 0.1,
+      filter: "blur(10px)",
+      autoAlpha: 0,
+      ease: "power2.inOut",
+      })
+
+      serviceInfoTL.from(".info-boxes .box",{
+        duration: 2,
+        scale: .9,
+        autoAlpha: 0,
+        stagger:{
+          each: .5,
+          grid: 'auto'
+        }
+
+      })
+
+      // Añadimos nuestra timeline a la timeline maestra
+    masterTl.add(serviceInfoTL,">"); // El ">" asegura que esta animación comience después de la anterior
+
+// Forzamos un refresh de ScrollTrigger
+ScrollTrigger.refresh();
+});
+
+
+  
+
+</script>
