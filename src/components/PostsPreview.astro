@@ -3,12 +3,14 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   project: CollectionEntry<"posts">;
+  index: number
 }
 
 const { data, id } = Astro.props.project;
+const index = Astro.props.index
 ---
 
-<a class="card" href={`/post/${id}`}>
+<a class="card hover:scale-105" id={`post-${index}`} href={`/post/${id}`}>
   <span class="title">{data.tags[0]}</span>
   <img
     src={data.img}
@@ -33,14 +35,10 @@ const { data, id } = Astro.props.project;
     font-family: var(--font-brand);
     font-size: var(--text-lg);
     font-weight: 500;
-    transition: box-shadow var(--theme-transition);
-    transition: transform 0.2s ease-in-out;
   }
 
   .card:hover {
     box-shadow: var(--shadow-md);
-    transform: scale(1.02);
-    transition: transform 0.2s ease-in-out;
   }
 
   .title {

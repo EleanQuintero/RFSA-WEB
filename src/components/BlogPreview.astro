@@ -1,7 +1,5 @@
 ---
-
 import { getCollection } from "astro:content";
-
 
 // Listado que trae los posts mas recientes
 
@@ -15,28 +13,100 @@ import Grid from "@/components/Grid.astro";
 import PostsPreview from "@/components/PostsPreview.astro";
 ---
 
-<section class="section with-background with-cta lg:gap-4 p-4 m-auto">
-    <header class="section-header stack gap-2">
-      <h1>Blog</h1>
-      <h3>Aqui encontraras mis ultimas publicaciones</h3>
-    </header>
+<section
+  id="blog-preview"
+  class="section with-background with-cta lg:gap-4 p-4 m-auto"
+>
+  <header class="blog-hero section-header stack gap-2">
+    <h1 class="mt-20">Blog</h1>
+    <h3>Aqui encontraras mis ultimas publicaciones</h3>
+  </header>
 
-    <div class="gallery">
-      <Grid variant="offset">
-        {
-          projects.map((project) => (
-            <li>
-              <PostsPreview project={project} />
-            </li>
-          ))
-        }
-      </Grid>
-    </div>
+  <div class="gallery">
+    <Grid className="blog-grid" variant="offset">
+      {
+        projects.map((project, index) => (
+          <li>
+            <PostsPreview index={index} project={project} />
+          </li>
+        ))
+      }
+    </Grid>
+  </div>
 
-    <div class="cta">
-      <CallToAction href="/posts/">
-        Ver todas las publicaciones
-        <Icon icon="arrow-right" size="1.2em" />
-      </CallToAction>
-    </div>
-  </section>
+  <div class="cta">
+    <CallToAction href="/posts/">
+      Ver todas las publicaciones
+      <Icon icon="arrow-right" size="1.2em" />
+    </CallToAction>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+  import { masterTl } from "../scripts/animations";
+
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const splitText = new SplitText(".blog-hero", {
+      type: "words",
+    });
+
+    const blogPreviewTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#blog-preview",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        scrub: 3,
+      },
+    });
+
+    blogPreviewTL
+      .from(splitText.words, {
+        duration: 2,
+        y: -20,
+        stagger: 0.1,
+        filter: "blur(10px)",
+        autoAlpha: 0,
+        ease: "power2.inOut",
+      })
+      .from(`.blog-grid #post-0`, {
+        autoAlpha: 0,
+        duration: 3,
+        ease: "power2.inOut",
+        x: -80,
+      })
+      .from(`.blog-grid #post-1`, {
+        autoAlpha: 0,
+        duration: 3,
+        ease: "power2.inOut",
+        y: -80,
+      })
+      .from(`.blog-grid #post-2`, {
+        autoAlpha: 0,
+        duration: 3,
+        ease: "power2.inOut",
+        y: +80,
+      })
+      .from(`.blog-grid #post-3`, {
+        autoAlpha: 0,
+        duration: 3,
+        ease: "power2.inOut",
+        x: +80,
+      })
+
+
+
+    // Añadimos nuestra timeline a la timeline maestra
+    masterTl.add(blogPreviewTL, ">"); // El ">" asegura que esta animación comience después de la anterior
+
+    // Forzamos un refresh de ScrollTrigger
+    ScrollTrigger.refresh();
+  });
+</script>
