@@ -34,10 +34,10 @@ import PostsPreview from "@/components/PostsPreview.astro";
     </Grid>
   </div>
 
-  <div class="cta">
+  <div class="cta mr-40 mb-40">
     <CallToAction href="/posts/">
       Ver todas las publicaciones
-      <Icon icon="arrow-right" size="1.2em" />
+      <Icon icon="arrow-right" size="1em" />
     </CallToAction>
   </div>
 </section>
@@ -99,9 +99,7 @@ import PostsPreview from "@/components/PostsPreview.astro";
         duration: 3,
         ease: "power2.inOut",
         x: +80,
-      })
-
-
+      });
 
     // Añadimos nuestra timeline a la timeline maestra
     masterTl.add(blogPreviewTL, ">"); // El ">" asegura que esta animación comience después de la anterior
