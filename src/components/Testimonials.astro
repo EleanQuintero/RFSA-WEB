@@ -1,5 +1,5 @@
 ---
-import AthleteTestimonial from "./AthleteTestimonial.astro";
+import AthleteTestimonial from "@/components/react/AthleteTestimonial";
 ---
 
 <section class="mt-30">
@@ -11,7 +11,7 @@ import AthleteTestimonial from "./AthleteTestimonial.astro";
     </h3>
   </header>
   <div class="m-auto">
-    <AthleteTestimonial />
+    <AthleteTestimonial client:load />
   </div>
 </section>
 
