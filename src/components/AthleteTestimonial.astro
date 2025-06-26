@@ -10,7 +10,7 @@ import { testimonials } from "../lib/testimonials";
         {
           testimonials.map((testimonial) => (
             <div class="w-full flex-none p-4">
-              <div class="h-full rounded-2xl bg-white p-8 shadow-lg">
+              <div class="h-full rounded-2xl bg-[var(--gray-900)] p-8 shadow-lg">
                 <div
                   class="cursor-pointer h-full"
                   onclick={`window.location.href='${testimonial.url}'`}
@@ -26,7 +26,7 @@ import { testimonials } from "../lib/testimonials";
                       <h3 class="font-semibold text-gray-900">
                         {testimonial.name}
                       </h3>
-                      <p class="text-sm text-gray-600">{testimonial.sport}</p>
+                      <p class="text-sm text-[var(--gray-0)]">{testimonial.sport}</p>
                     </div>
                   </div>
                   <div class="mt-4 flex text-yellow-400">
@@ -36,7 +36,7 @@ import { testimonials } from "../lib/testimonials";
                       </svg>
                     ))}
                   </div>
-                  <p class="mt-4 text-gray-600">{testimonial.testimonial}</p>
+                  <p class="mt-4 text-[var(--gray-0)]">{testimonial.testimonial}</p>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ import { testimonials } from "../lib/testimonials";
     }
 
     // Avanzar automáticamente cada 3 segundos
-    setInterval(nextSlide, 3500);
+    setInterval(nextSlide, 2000);
 
     // Ajustar posición del carrusel cuando cambia el tamaño de la ventana
     window.addEventListener("resize", () => updateCarousel());
