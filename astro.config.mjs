@@ -17,6 +17,9 @@ export default defineConfig({
             "process.env.UPSTASH_REDIS_REST_URL": JSON.stringify(process.env.UPSTASH_REDIS_REST_URL),
             "process.env.UPSTASH_REDIS_REST_TOKEN": JSON.stringify(process.env.UPSTASH_REDIS_REST_TOKEN),
         },
+        server: {
+            allowedHosts:"p0jjic-ip-79-116-216-9.tunnelmole.net"
+        }
     },
     srcDir: './src',
     outDir: './dist',

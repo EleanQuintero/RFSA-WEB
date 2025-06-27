@@ -52,11 +52,12 @@ const { Content } = await render(post)
         <div class="content prose-slate mb-5">
           <Content />
         </div>
-        <div class="w-[50%] items-center lg:w-[70%]" >
+        <div class="p-8  justify-center items-center lg:w-[70%]" >
           <img
             transition:name=`img-${title}`
             src={img}
             alt={img_alt}
+            class="aspect-square w-full"
           />
         </div>
       </div>

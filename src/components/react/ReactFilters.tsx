@@ -45,7 +45,7 @@ const ReactFilters: React.FC<ReactFiltersProps> = ({ posts, categories }) => {
         ))}
       </div>
 
-      <div className="flex flex-col items-center justify-center lg:grid lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="flex flex-col items-center w-full justify-center lg:grid lg:grid-cols-3 gap-10 lg:max-w-6xl mx-auto">
         {filteredPosts.map((post) => (
           <a 
             key={post.id} 
@@ -53,7 +53,7 @@ const ReactFilters: React.FC<ReactFiltersProps> = ({ posts, categories }) => {
             className="post-item block bg-[var(--gray-900)] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-sm w-full"
           >
             {post.data.img && (
-              <div className="relative">
+              <div className="relative w-full">
                 <img 
                   src={post.data.img} 
                   alt={post.data.img_alt || post.data.title} 
