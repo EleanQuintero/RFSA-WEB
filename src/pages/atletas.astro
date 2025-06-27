@@ -27,10 +27,10 @@ import ServiceInfoBox from "@/components/ServiceInfoBox.astro";
             <li class="p-12">
               <a href={testimonial.url}>
                 <ServiceInfoBox>
-                  <h3>{testimonial.name}</h3>
-                  <p>{testimonial.sport}</p>
+                  <h2>{testimonial.name}</h2>
+                  <span class="text-xl">{testimonial.sport}</span>
                   <div class="flex flex-row items-center justify-center">
-                    <p>{testimonial.testimonial}</p>
+                    <p class="text-lg">{testimonial.testimonial}</p>
                     <img
                       transition:name={`img-${testimonial.name}`}
                       src={testimonial.image}

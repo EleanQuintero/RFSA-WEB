@@ -202,28 +202,20 @@ h5 {
 	color: var(--gray-100);
 }
 
-h1 {
-	font-size: var(--text-4xl);
-}
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); }
+h4 { font-size: var(--text-md); }
+h5 { font-size: var(--text-base); }
+h6 { font-size: var(--text-sm); }
 
-h2 {
-	font-size: var(--text-3xl);
-}
-
-h3 {
-	font-size: var(--text-2xl);
-}
-
-h4 {
-	font-size: var(--text-xl);
-}
-
-h5 {
-	font-size: var(--text-lg);
-}
-
-h6 {
-	font-size: var(--text-base);
+@media (min-width: 50em) {
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+  h4 { font-size: var(--text-xl); }
+  h5 { font-size: var(--text-lg); }
+  h6 { font-size: var(--text-base); }
 }
 
 /* Utilities */

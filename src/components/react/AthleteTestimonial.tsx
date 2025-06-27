@@ -44,7 +44,7 @@ const AthleteTestimonial: React.FC = () => {
 
   return (
     <div className="relative w-full overflow-hidden py-12">
-      <div className="mx-auto w-96 lg:w-7xl px-2 sm:px-6 lg:px-4">
+      <div className="mx-auto w-full lg:w-7xl px-2 sm:px-6 lg:px-4">
         <div className="testimonial-carousel relative overflow-hidden">
           <div
             ref={flexRef}

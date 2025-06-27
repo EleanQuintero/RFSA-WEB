@@ -15,18 +15,18 @@ import PostsPreview from "@/components/PostsPreview.astro";
 
 <section
   id="blog-preview"
-  class="section with-background with-cta lg:gap-4 p-4 m-auto"
+  class="section p-6 lg:gap-4 m-auto"
 >
   <header class="blog-hero section-header stack gap-2">
     <h1 class="mt-20">Blog</h1>
     <h3>Aqui encontraras mis ultimas publicaciones</h3>
   </header>
 
-  <div class="gallery">
-    <Grid className="blog-grid" variant="offset">
+  <div class="gallery flex flex-col items-center justify-center ">
+    <Grid className="h-full" variant="offset">
       {
         projects.map((project, index) => (
-          <li>
+          <li class="scale-150 mb-20 mt-20 lg:mt-0 lg:scale-100">
             <PostsPreview index={index} project={project} />
           </li>
         ))
@@ -34,7 +34,7 @@ import PostsPreview from "@/components/PostsPreview.astro";
     </Grid>
   </div>
 
-  <div class="cta mr-40 mb-40">
+  <div class="flex justify-end w-full mt-4 mb-10 text-base max-w-xs">
     <CallToAction href="/posts/">
       Ver todas las publicaciones
       <Icon icon="arrow-right" size="1em" />
