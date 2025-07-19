@@ -1,17 +1,17 @@
 backend:
-  name: github
-  repo: EleanQuintero/RFSA-WEB
-  base_url: https://rfsa-web.vercel.app
-  auth_endpoint: api/auth
-  api_root: https://api.github.com/
-  branch: main
+  name: test-repo
+  #repo: EleanQuintero/RFSA-WEB
+  #base_url: https://rfsa-web.vercel.app
+  #auth_endpoint: api/auth
+  #api_root: https://api.github.com/
+  #branch: main
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
   - name: "posts"
-    label: "Posts"
+    label: "posts"
     folder: "src/content/posts"
     create: true
     slug: "{{slug}}"
@@ -20,4 +20,4 @@ collections:
       - { label: "Fecha", name: "date", widget: "datetime" }
       - { label: "Cuerpo", name: "body", widget: "markdown" }
 
-redirect_uri: `https://${request.headers.get('host')}/api/callback`,
+#redirect_uri: `https://${request.headers.get('host')}/api/callback`,
