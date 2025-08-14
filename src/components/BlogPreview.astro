@@ -13,17 +13,14 @@ import Grid from "@/components/Grid.astro";
 import PostsPreview from "@/components/PostsPreview.astro";
 ---
 
-<section
-  id="blog-preview"
-  class="section p-6 lg:gap-4 m-auto"
->
+<section id="blog-preview" class="section p-6 lg:gap-4 m-auto">
   <header class="blog-hero section-header stack gap-2">
     <h1 class="mt-20">Blog</h1>
     <h3>Aqui encontraras mis ultimas publicaciones</h3>
   </header>
 
-  <div class="gallery flex flex-col items-center justify-center ">
-    <Grid className="h-full" variant="offset">
+  <div class="gallery flex flex-col items-center justify-center">
+    <Grid className="h-full blog-grid" variant="offset">
       {
         projects.map((project, index) => (
           <li class="scale-150 mb-20 mt-20 lg:mt-0 lg:scale-100">
@@ -60,10 +57,11 @@ import PostsPreview from "@/components/PostsPreview.astro";
         trigger: "#blog-preview",
         start: "top top",
         end: "+=100%",
-        pin: true,
+        pin: true, // Comentamos esto para que no fije la sección
         pinSpacing: true,
         anticipatePin: 1,
         scrub: 3,
+        markers: true, // Agregamos marcadores para depuración
       },
     });
 
@@ -76,25 +74,25 @@ import PostsPreview from "@/components/PostsPreview.astro";
         autoAlpha: 0,
         ease: "power2.inOut",
       })
-      .from(`.blog-grid #post-0`, {
+      .from("#post-0", {
         autoAlpha: 0,
         duration: 3,
         ease: "power2.inOut",
         x: -80,
       })
-      .from(`.blog-grid #post-1`, {
+      .from("#post-1", {
         autoAlpha: 0,
         duration: 3,
         ease: "power2.inOut",
         y: -80,
       })
-      .from(`.blog-grid #post-2`, {
+      .from("#post-2", {
         autoAlpha: 0,
         duration: 3,
         ease: "power2.inOut",
         y: +80,
       })
-      .from(`.blog-grid #post-3`, {
+      .from("#post-3", {
         autoAlpha: 0,
         duration: 3,
         ease: "power2.inOut",
