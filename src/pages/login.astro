@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/astro/components'
+
+
+
+---
+
+<BaseLayout>
+    <main class="mt-16">
+        <SignedOut >
+            <SignInButton mode="modal" />
+          </SignedOut>
+          <SignedIn >
+            <UserButton />
+          </SignedIn>
+    </main>
+
+</BaseLayout>
