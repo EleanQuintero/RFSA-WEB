@@ -19,12 +19,11 @@ export const testimonials = [
             "The personalized training program helped me achieve my personal best in the 100m sprint. Couldn't be happier!",
     },
     {
-        name: "David Chen",
-        sport: "Basketball",
-        image:
-            "https://images.unsplash.com/photo-1519311965067-36d3e5f33d39?w=400&h=400&fit=crop",
+        name: "Alberto Herraiz (Beto)",
+        sport: "Powerlifting",
+        image: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8638_mvdlcb.webp",
         rating: 5,
-        testimonial:
-            "The team's approach to training and recovery has been instrumental in my development as a professional athlete.",
+        testimonial: "En todo momento Adrián se ha mostrado como un profesional muy implicado y con gran conocimiento.",
+        url: "/testimonials/beto-herraiz",
     },
 ];
