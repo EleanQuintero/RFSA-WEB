@@ -20,6 +20,10 @@ const testimonials = defineCollection({
 		name: z.string(),
 		sport: z.string(),
 		img: z.string(),
+		img2: z.string(),
+		img3: z.string(),
+		img4: z.string(),
+		img5: z.string(),
 		rating: z.string(),
 		testimonial: z.string(),
 		url: z.string()

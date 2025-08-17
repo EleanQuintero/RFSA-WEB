@@ -1,12 +1,9 @@
 ---
 import { testimonials } from "@/lib/testimonials";
-
 import BaseLayout from "@/layouts/BaseLayout.astro";
-
-import ContactCTA from "@/components/ContactCTA.astro";
-import Hero from "@/components/Hero.astro";
-import Grid from "@/components/Grid.astro";
-import ServiceInfoBox from "@/components/ServiceInfoBox.astro";
+import { CustomCard } from "@/components/testimonials/react/CustomCard";
+import Hero from "@/components/hero/Hero.astro";
+import ContactCTA from "@/components/CTA/ContactCTA.astro";
 ---
 
 <BaseLayout
@@ -20,29 +17,29 @@ import ServiceInfoBox from "@/components/ServiceInfoBox.astro";
         tagline="Estos atletas confiaron en rehab for strengh atlethes y sus resultados hablan por si solos"
         align="start"
       />
-      <Grid variant="offset">
-        {
-          testimonials.map((testimonial) => (
-            <li class="p-12">
-              <a href={testimonial.url}>
-                <ServiceInfoBox>
-                  <h2>{testimonial.name}</h2>
-                  <span class="text-xl">{testimonial.sport}</span>
-                  <div class="flex flex-row items-center justify-center">
-                    <p class="text-lg">{testimonial.testimonial}</p>
-                    <img
-                      transition:name={`img-${testimonial.name}`}
-                      src={testimonial.image}
-                      alt={`Foto de ${testimonial.name}`}
-                      class="w-36 h-36 rounded-lg"
-                    />
-                  </div>
-                </ServiceInfoBox>
-              </a>
-            </li>
-          ))
-        }
-      </Grid>
+      <section class="w-full max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+          {
+            testimonials.map((testimonial) => (
+              <div class="w-full max-w-md">
+                <li
+                  class="p-4 list-none"
+                  transition:name={`card-${testimonial.name}`}
+                >
+                  <CustomCard
+                    client:load
+                    url={testimonial.url}
+                    title={testimonial.name}
+                    subtitle={testimonial.sport}
+                    description={testimonial.testimonial}
+                    image={testimonial.image}
+                  />
+                </li>
+              </div>
+            ))
+          }
+        </div>
+      </section>
     </main>
     <ContactCTA />
   </div>

@@ -1,0 +1,104 @@
+---
+import skills from "@/lib/skills";
+import Icon from "../icons/Icon.astro";
+---
+
+<section id="service-box" class="service box">
+  <div class="skills-container">
+    {
+      skills.map((skill) => (
+        <div class="skill-item">
+          <Icon icon={skill.icon} color="var(--gray-500)" size="2.5rem" />
+          <h2>{skill.title}</h2>
+          <p>
+            {skill.description}
+            <strong>{skill.strongText}</strong>
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: auto;
+    margin-bottom: 25px;
+  }
+  .box {
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background-color: var(--metal-blue-800);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skills-container {
+    display: flex;
+    flex-direction: column; /* Columna para móviles */
+    gap: 2rem;
+  }
+
+  .skill-item h2 {
+    font-size: var(--text-lg);
+  }
+
+  .skill-item p {
+    color: var(--gray-400);
+  }
+
+  /* Media query para pantallas medianas y grandes */
+  @media (min-width: 768px) {
+    .box {
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+
+    .skills-container {
+      flex-direction: row; /* Cambiar a fila para pantallas medianas y grandes */
+      flex-wrap: nowrap; /* Evita que las skills se envuelvan */
+      overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+      gap: 1.5rem; /* Ajustar el espacio entre elementos */
+    }
+
+    .skill-item {
+      flex: 1; /* Distribuye el espacio disponible entre las skills */
+      min-width: 0; /* Permite que las skills se ajusten al espacio disponible */
+    }
+
+    .skill-item h2 {
+      font-size: var(--text-xl);
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* document.addEventListener('DOMContentLoaded', () => {
+	  gsap.fromTo(".service", 
+		{
+		  scale: 0.8,
+		  autoAlpha: 0,
+		  y: 50
+		},
+		{
+		  scale: 1,
+		  autoAlpha: 1,
+		  y: 0,
+		  ease: "none",
+		  scrollTrigger: {
+			trigger: ".service",
+			start: "top 60%",
+			end: "top 45%",
+			scrub: 0.5,
+			markers: true,
+			toggleActions: "play none none reverse"
+		  }
+		}
+	  );
+	});*/
+</script>
