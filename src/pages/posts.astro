@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import ContactCTA from "@/components/ContactCTA.astro";
-import Hero from "@/components/Hero.astro";
 import ReactFilters from "@/components/react/ReactFilters";
+import ContactCTA from "@/components/CTA/ContactCTA.astro";
+import Hero from "@/components/hero/Hero.astro";
 
 const projects = (await getCollection("posts")).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()

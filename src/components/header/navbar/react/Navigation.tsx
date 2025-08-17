@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../../../theme/react/ThemeToggle";
 import { MobileButton } from "./MobileMenuButton";
 import { MobileMenu } from "./MobileMenu";
 

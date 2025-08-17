@@ -1,11 +1,13 @@
 ---
-import Hero from "@/components/Hero.astro";
-
 import { iconsUrl } from "@/lib/constants";
-import ServiceInfoBox from "@/components/ServiceInfoBox.astro";
+import Hero from "../hero/Hero.astro";
+import ServiceInfoBox from "./ServiceInfoBox.astro";
 ---
 
-<section id="service-info" class="flex flex-col items-center justify-center p-8 lg:p-10 lg:mt-20">
+<section
+  id="service-info"
+  class="flex flex-col items-center justify-center p-8 lg:p-10 lg:mt-20"
+>
   <Hero
     title="Metodología de trabajo"
     tagline="Estas serán las etapas de tu proceso en Rehab for Strength Atlethes"
@@ -87,61 +89,54 @@ import ServiceInfoBox from "@/components/ServiceInfoBox.astro";
   </div>
 </section>
 
-
 <script>
+  import { masterTl } from "@/scripts/animations";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
-  import { masterTl } from "../scripts/animations";
 
   gsap.registerPlugin(SplitText, ScrollTrigger);
 
-
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const splitText = new SplitText(".service-hero", {
-      type: "words"
+      type: "words",
     });
 
     const serviceInfoTL = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#service-info",
-          start: "top top",
-          end: "+=100%",
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 2.5,
-        }
-      });
-  
-      serviceInfoTL.from(splitText.words, {
+      scrollTrigger: {
+        trigger: "#service-info",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        scrub: 2.5,
+      },
+    });
+
+    serviceInfoTL.from(splitText.words, {
       duration: 2,
       y: -20,
       stagger: 0.1,
       filter: "blur(10px)",
       autoAlpha: 0,
       ease: "power2.inOut",
-      })
+    });
 
-      serviceInfoTL.from(".info-boxes .box",{
-        duration: 2,
-        scale: .9,
-        autoAlpha: 0,
-        stagger:{
-          each: .5,
-          grid: 'auto'
-        }
+    serviceInfoTL.from(".info-boxes .box", {
+      duration: 2,
+      scale: 0.9,
+      autoAlpha: 0,
+      stagger: {
+        each: 0.5,
+        grid: "auto",
+      },
+    });
 
-      })
+    // Añadimos nuestra timeline a la timeline maestra
+    masterTl.add(serviceInfoTL, ">"); // El ">" asegura que esta animación comience después de la anterior
 
-      // Añadimos nuestra timeline a la timeline maestra
-    masterTl.add(serviceInfoTL,">"); // El ">" asegura que esta animación comience después de la anterior
-
-// Forzamos un refresh de ScrollTrigger
-ScrollTrigger.refresh();
-});
-
-
-  
-
+    // Forzamos un refresh de ScrollTrigger
+    ScrollTrigger.refresh();
+  });
 </script>

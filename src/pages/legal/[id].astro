@@ -1,50 +1,41 @@
 ---
-import Hero from "@/components/Hero.astro"
-import LegalStuffLayout from "@/layouts/LegalStuffLayout.astro"
+import Hero from "@/components/hero/Hero.astro";
+import LegalStuffLayout from "@/layouts/LegalStuffLayout.astro";
 
-import { type CollectionEntry, getCollection, render } from "astro:content"
+import { type CollectionEntry, getCollection, render } from "astro:content";
 
-
-export const prerender = true
+export const prerender = true;
 export async function getStaticPaths() {
-  const legal = await getCollection("legal"); 
+  const legal = await getCollection("legal");
 
   return legal.map((legal) => ({
-    params: { id: legal.id},
-    props: { legal }
-  }))
+    params: { id: legal.id },
+    props: { legal },
+  }));
 }
 
-const { legal } = Astro.props
-const { data } = legal
-const {  title, description } = data
+const { legal } = Astro.props;
+const { data } = legal;
+const { title, description } = data;
 
-const { Content } = await render(legal)
-
+const { Content } = await render(legal);
 ---
 
 <LegalStuffLayout
   title=`${title} | Rehab for Strengh Atlethes`
   description={description}
 >
-  <Hero
-    className="mt-20"
-    align="center"
-    title={title}
-  />
-  <main class="flex flex-col items-center justify-center wrapper p-6 lg:gap-x-5">
+  <Hero className="mt-20" align="center" title={title} />
+  <main
+    class="flex flex-col items-center justify-center wrapper p-6 lg:gap-x-5"
+  >
     <section class="max-w-[80ch] content font-bold text-md prose-slate mb-5">
       <Content />
     </section>
   </main>
-
-
-  
-  </LegalStuffLayout
->
+</LegalStuffLayout>
 
 <style>
-
   .content > :global(* + *) {
     margin-top: 1rem;
   }
