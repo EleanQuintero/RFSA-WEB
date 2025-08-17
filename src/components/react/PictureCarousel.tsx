@@ -14,28 +14,26 @@ interface PictureCarouselProps {
 
 export const PictureCarousel = ({ images }: PictureCarouselProps) => {
   return (
-    <>
-      <Carousel>
-        <CarouselContent>
-          {images.map((image, index) => (
-            <CarouselItem key={index}>
-              <div className="p-1">
-                <Card className="bg-[var(--gray-999_20)]">
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <img
-                      src={image}
-                      alt={`Imagen ${index + 1}}`}
-                      className="object-cover"
-                    />
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </>
+    <Carousel>
+      <CarouselContent>
+        {images.map((image, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card className="bg-[var(--gray-999_20)]">
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <img
+                    src={image}
+                    alt={`Imagen ${index + 1}}`}
+                    className="object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 };

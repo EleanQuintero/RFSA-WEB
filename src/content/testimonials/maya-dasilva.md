@@ -2,21 +2,29 @@
 id: maya-dasilva
 name: "Mayara Da silva (Maya)"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8627_mwbege.webp"
-img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8638_mvdlcb.webp"
-img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8651_nmf6hm.webp"
-img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8657_s7hkau.webp"
-img5: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8625_zlzhbe.webp"
+img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429760/sbd_wplc_day2-476_qljfxt.webp"
+img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429761/sbd_wplc_day2-755_xh1h7q.webp"
+img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429760/sbd_wplc_day2-480_smea3a.webp"
+img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429762/sbd_wplc_day2-757_kcrvi8.webp"
+img5: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429761/sbd_wplc_day2-509_uaqkmr.webp"
 rating: 5,
-testimonial: "En todo momento Adrián se ha mostrado como un profesional muy implicado y con gran conocimiento."
-url: "/testimonials/beto-herraiz"
+testimonial: "Adri siempre me encontraba la solución y he podido acabar el entreno totalmente a gusto."
+url: "/testimonials/maya-dasilva"
 ---
-## BETO
 
-**x2 World Jr Champion**  
-**x2 Spain Open Champion**  
-**@betohf_18**
+> **x1 Jr World Champion**  
+> **x1 Open World bronze medalist**  
+> [**@maya_dasilva**](https://www.instagram.com/maya_dasilva/)
 
-Con Adrián he trabajado en diversas ocasiones en la recuperación de pequeñas roturas en glúteo y aductor. En todo momento Adrián se ha mostrado como un profesional muy implicado y con gran conocimiento. En el caso del trabajo realizado para el glúteo, acudí a él con tan solo un mes de anterioridad al campeonato del mundo y finalmente logramos competir sin dolor y proclamarnos campeones.
+### Mi historia en Rehab for Strengh Atlhetes
 
-Escogí el servicio de Adrián por sus buenos resultados con otros pacientes y su experiencia como atleta en el powerlifting de competición. Además, se trata de una persona cercana y con un gran componente humano.
+Era la primera vez que trabajo con Adrian y sinceramente ha sido totalmente increíble para ser la primera vez.
+Siempre atento, buscando todas las soluciones del mundo para que estés despreocupado y seguir motivada para seguir entrenando.
+
+### ¿Por que Escogi Rehab for Strengh Atlhetes?
+
+Escogí a Adri por su excelencia en las redes, ya que dicen ser el mago de los dolores, por todas las reseñas en las redes de otros clientes que están maravillados con su trabajo.
+
+### Mi Experiencia con Rehab for Strengh Atlhetes
+
+ En mi caso mi dolor fue en el coxis, ha sido difícil debido a que el dolor era según el día, quizá me pillaba desprevenida y quizá ese día nos podía joder el día de entreno, pero Adri siempre a final de la tarde me buscaba la solución y siempre he acabado el entreno pudiendo entrenar a gusto.
