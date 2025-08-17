@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { testimonials } from "@/lib/testimonials";
-import { Card, CardContent } from "../ui/card";
+import { Card, CardContent } from "../../ui/react/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "../ui/carousel";
+} from "../../ui/react/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 const data = testimonials.map((testimonial) => ({

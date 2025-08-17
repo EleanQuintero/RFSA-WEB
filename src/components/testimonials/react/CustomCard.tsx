@@ -6,7 +6,7 @@ import {
   CardAction,
   CardContent,
   CardFooter,
-} from "../ui/card";
+} from "../../ui/react/card";
 
 interface CustomCardProps {
   title: string;
