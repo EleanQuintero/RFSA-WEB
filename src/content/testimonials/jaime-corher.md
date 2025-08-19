@@ -2,7 +2,7 @@
 id: jaime-corher
 name: "Jaime Corher"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429742/EuropeanChampionships2022-D2S3-14_1_lprvz6.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429742/EuropeanChampionships2022-D2S3-14_1_lprvz6.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429742/EuropeanChampionships2022-D2S3-242_1_iuhnci.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429740/3FABE461-5EB8-4E6D-9A38-D745B8931778_1_qvrdf7.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429741/JAIME_copia_1_lwhicl.webp"

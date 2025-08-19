@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Icon from "../icons/Icon.astro";
 import Grid from "../ui/astro/Grid.astro";
 import PostsPreview from "./PostsPreview.astro";
-import CallToAction from "../CTA/CallToAction.astro";
+import CallToAction from "../cta/CallToAction.astro";
 
 // Listado que trae los posts mas recientes
 
@@ -30,7 +30,7 @@ const projects = (await getCollection("posts"))
     </Grid>
   </div>
 
-  <div class="flex justify-end w-full mt-4 mb-10 text-base max-w-xs">
+  <div class="flex w-full justify-start ml-4 sm:ml-8">
     <CallToAction href="/posts/">
       Ver todas las publicaciones
       <Icon icon="arrow-right" size="1em" />

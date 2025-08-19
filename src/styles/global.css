@@ -370,7 +370,7 @@ h6 { font-size: var(--text-sm); }
     }
 
     .section.with-cta {
-      grid-template-areas: "header header header" "gallery gallery gallery gallery" "cta cta cta";
+      grid-template-areas: "header header header" "gallery gallery gallery gallery" "cta cta cta cta";
     }
 
     .section-header {
@@ -398,7 +398,7 @@ h6 { font-size: var(--text-sm); }
 
     .cta {
       grid-area: cta;
-      justify-items: right;
+      justify-items: left;
     }
   }
 

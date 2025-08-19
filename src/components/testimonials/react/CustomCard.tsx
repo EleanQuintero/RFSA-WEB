@@ -26,7 +26,9 @@ export const CustomCard = ({
   return (
     <Card className="bg-[var(--gray-300)]shadow-lg hover:scale-110 hover:shadow-xl transition-shadow duration-300">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle>
+          <a href={url}>{title}</a>
+        </CardTitle>
         <CardDescription className="text--[var(--gray-900)]">
           {subtitle}
         </CardDescription>

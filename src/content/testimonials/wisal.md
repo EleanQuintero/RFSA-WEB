@@ -2,7 +2,7 @@
 id: wisal
 name: "Wisal"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429768/IMG_4134_htlxi5.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429768/IMG_4134_htlxi5.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429770/DSC00060-17828_hmedbz.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429769/Wisal-56_tgk61t.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429768/IMG_6504_gdionh.webp"

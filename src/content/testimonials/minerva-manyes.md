@@ -2,7 +2,7 @@
 id: minerva-manyes
 name: "Minerva Manyes"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429763/IMG_6552_xicj6i.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429763/IMG_6552_xicj6i.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429763/IMG_6557_h0ghuz.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429764/IMG_6561_phmeue.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429764/IMG_6497_imuyss.webp"

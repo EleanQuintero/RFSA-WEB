@@ -2,7 +2,7 @@
 id: marcos-souto
 name: "Marcos Souto"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429765/DSC03823_djqrgh.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429765/DSC03823_djqrgh.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429767/DSC04759_fj9lfs.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429766/DSC05599_mxpgu8.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429767/DSC04219_opgom8.webp"

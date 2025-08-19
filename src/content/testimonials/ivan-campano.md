@@ -2,7 +2,7 @@
 id: ivan-campano
 name: "Ivan Campano"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429714/image00026_uqjoap.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429714/image00026_uqjoap.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429714/SBD_WPLC_Day1-213_mhthpi.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429714/SBD_WPLC_Day1-655_s0b3js.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429714/image00007_vosplb.webp"

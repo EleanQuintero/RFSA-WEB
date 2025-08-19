@@ -2,7 +2,7 @@
 id: maya-dasilva
 name: "Mayara Da silva (Maya)"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429760/sbd_wplc_day2-476_qljfxt.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429760/sbd_wplc_day2-476_qljfxt.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429761/sbd_wplc_day2-755_xh1h7q.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429760/sbd_wplc_day2-480_smea3a.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429762/sbd_wplc_day2-757_kcrvi8.webp"

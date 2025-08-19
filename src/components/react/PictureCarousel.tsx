@@ -20,7 +20,7 @@ export const PictureCarousel = ({ images }: PictureCarouselProps) => {
           <CarouselItem key={index}>
             <div className="p-1">
               <Card className="bg-[var(--gray-999_20)]">
-                <CardContent className="flex aspect-square items-center justify-center p-6">
+                <CardContent className="flex aspect-square  w-full items-center justify-center p-6">
                   <img
                     src={image}
                     alt={`Imagen ${index + 1}}`}
@@ -32,8 +32,8 @@ export const PictureCarousel = ({ images }: PictureCarouselProps) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="md:flex hidden" />
+      <CarouselNext className="md:flex hidden" />
     </Carousel>
   );
 };

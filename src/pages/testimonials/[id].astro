@@ -1,6 +1,6 @@
 ---
-import CallToAction from "@/components/CTA/CallToAction.astro";
-import ContactCTA from "@/components/CTA/ContactCTA.astro";
+import CallToAction from "@/components/cta/CallToAction.astro";
+import ContactCTA from "@/components/cta/ContactCTA.astro";
 import Hero from "@/components/hero/Hero.astro";
 
 import Icon from "@/components/icons/Icon.astro";
@@ -21,11 +21,12 @@ const { atleta } = Astro.props;
 const { data } = atleta;
 const { name, img, img2, img3, img4, img5 } = data;
 const images = [img, img2, img3, img4, img5].filter(Boolean);
+console.log(images);
 const { Content } = await render(atleta);
 ---
 
-<BaseLayout title=`Casos de éxito | ${name}`>
-  <main class="grid grid-rows-[250px_1fr]gap-20 mt-20">
+<BaseLayout title=`Atletas | ${name}`>
+  <main class="grid grid-rows-[250px_1fr]gap-20 mt-20 p-2.5">
     <header class="flex flex-col lg:grid lg:grid-cols-[250px_1fr]">
       <div class="flex self-start mb-14 ml-6">
         <CallToAction href="/atletas/">
@@ -46,7 +47,7 @@ const { Content } = await render(atleta);
         <Content />
       </div>
       <div class="md:w-4/6 w-3/4 h-auto">
-        <PictureCarousel images={images} client:load />
+        <PictureCarousel images={images} client:only />
       </div>
     </section>
     <section class="mt-12">

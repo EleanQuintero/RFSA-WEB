@@ -2,7 +2,7 @@
 id: beto-herraiz
 name: "Alberto Herraiz (Beto)"
 sport: "Powerlifting"
-img: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8627_mwbege.webp"
+img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8627_mwbege.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8638_mvdlcb.webp"
 img3: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8651_nmf6hm.webp"
 img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755199926/IMG_8657_s7hkau.webp"
