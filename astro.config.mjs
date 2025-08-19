@@ -21,7 +21,7 @@ export default defineConfig({
             "process.env.CLERK_SECRET_KEY": JSON.stringify(process.env.CLERK_SECRET_KEY),
         },
         server: {
-            allowedHosts: "pm9wci-ip-188-26-212-89.tunnelmole.net"
+            allowedHosts: "3prfi1-ip-188-26-212-89.tunnelmole.net"
         }
     },
     srcDir: './src',

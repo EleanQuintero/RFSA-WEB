@@ -76,8 +76,8 @@ const AthleteTestimonial: React.FC = () => {
           ))}
         </CarouselContent>
         <div className="flex justify-center gap-2 mt-4">
-          <CarouselPrevious className="static !translate-y-0" />
-          <CarouselNext className="static !translate-y-0" />
+          <CarouselPrevious className="md:flex hidden static !translate-y-0" />
+          <CarouselNext className="md:flex hidden static !translate-y-0" />
         </div>
       </Carousel>
     </section>

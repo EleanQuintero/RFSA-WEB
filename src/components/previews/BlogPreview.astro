@@ -18,7 +18,7 @@ const projects = (await getCollection("posts"))
     <h3>Aqui encontraras mis ultimas publicaciones</h3>
   </header>
 
-  <div class="gallery flex flex-col items-center justify-center">
+  <div class="gallery flex flex-col items-center justify-center p-14">
     <Grid className="h-full blog-grid" variant="offset">
       {
         projects.map((project, index) => (
