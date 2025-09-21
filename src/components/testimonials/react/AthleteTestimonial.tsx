@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { testimonials } from "@/lib/testimonials";
-import { Card, CardContent } from "../../ui/react/card";
 import {
   Carousel,
   CarouselContent,

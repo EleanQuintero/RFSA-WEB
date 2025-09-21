@@ -1,6 +1,6 @@
 ---
-id: wisal
-name: "Wisal"
+id: wisal-douay
+name: "Wisal Douay"
 sport: "Powerlifting"
 img:  "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429768/IMG_4134_htlxi5.webp"
 img2: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429770/DSC00060-17828_hmedbz.webp"
@@ -9,7 +9,7 @@ img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429768/IMG_6504_gd
 img5: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429769/Wisal-110_jj81ud.webp"
 rating: 5,
 testimonial: "Su enfoque es totalmente individualizado, se toma el tiempo de escucharte y de entender qué está sucediendo con tu cuerpo. No se trata solo de dar un diagnóstico: Adrián se involucra y conecta contigo"
-url: "/testimonials/wisal"
+url: "/testimonials/wisal-douay"
 ---
 
 > **x1 Jr Spain Champion**  

@@ -37,14 +37,14 @@ export const testimonials = [
         url: "/testimonials/ivan-campano",
     },
     {
-        name: "Wisal",
+        name: "Wisal Douay",
         sport: "Powerlifting",
         image:
             "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429768/IMG_4134_htlxi5.webp",
         rating: 5,
         testimonial:
             "Su enfoque es totalmente individualizado, se toma el tiempo de escucharte y de entender qué está sucediendo con tu cuerpo. No se trata solo de dar un diagnóstico: Adrián se involucra y conecta contigo.",
-        url: "/testimonials/wisal",
+        url: "/testimonials/wisal-douay",
     },
     {
         name: "Marcos Souto",

@@ -9,7 +9,7 @@ img4: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429764/IMG_6497_im
 img5: "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1755429765/IMG_6487_zjmjif.webp"
 rating: 5,
 testimonial: "Gracias a su tratamiento, el dolor desapareció por completo y pude competir cumpliendo mi objetivo."
-url: "/testimonials/marcos-souto"
+url: "/testimonials/minerva-manyes"
 ---
 
 > **x2 Jr bronze medalist**  
