@@ -1,10 +1,10 @@
 ---
 // Component Imports
-import MainHead from "@/components/MainHead.astro";
-import Footer from "@/components/Footer.astro";
-import NavBar from "@/components/NavBar.astro";
+import MainHead from "@/components/header/MainHead.astro";
+import Footer from "@/components/footer/Footer.astro";
+import NavBar from "@/components/header/navbar/astro/NavBar.astro";
 import { ClientRouter } from "astro:transitions";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/theme/react/ThemeProvider";
 
 interface Props {
   title?: string | undefined;

@@ -18,10 +18,10 @@ export default defineConfig({
             "process.env.UPSTASH_REDIS_REST_URL": JSON.stringify(process.env.UPSTASH_REDIS_REST_URL),
             "process.env.UPSTASH_REDIS_REST_TOKEN": JSON.stringify(process.env.UPSTASH_REDIS_REST_TOKEN),
             "process.env.CLERK_PUBLISHABLE_KEY": JSON.stringify(process.env.PUBLIC_CLERK_PUBLISHABLE_KEY),
-        "process.env.CLERK_SECRET_KEY": JSON.stringify(process.env.CLERK_SECRET_KEY),
+            "process.env.CLERK_SECRET_KEY": JSON.stringify(process.env.CLERK_SECRET_KEY),
         },
         server: {
-            allowedHosts:"p0jjic-ip-79-116-216-9.tunnelmole.net"
+            allowedHosts: "3prfi1-ip-188-26-212-89.tunnelmole.net"
         }
     },
     srcDir: './src',
@@ -31,7 +31,7 @@ export default defineConfig({
     session: {
         driver: 'redis',
         options: {
-          url: process.env.REDIS_URL,
+            url: process.env.REDIS_URL,
         },
-      },
+    },
 });

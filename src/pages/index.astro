@@ -2,13 +2,13 @@
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 
 // Componentes de paginas
-import ContactCTA from "@/components/ContactCTA.astro";
-import ServiceSkills from "@/components/ServiceSkills.astro";
-import ServiceInfo from "@/components/ServiceInfo.astro";
-import BlogPreview from "@/components/BlogPreview.astro";
-import Testimonials from "@/components/Testimonials.astro";
-import HeroHeader from "@/components/HeroHeader.astro";
 import MainPageLayout from "@/layouts/MainPageLayout.astro";
+import HeroHeader from "@/components/hero/HeroHeader.astro";
+import BlogPreview from "@/components/previews/BlogPreview.astro";
+import ServiceInfo from "@/components/service/ServiceInfo.astro";
+import ServiceSkills from "@/components/skills/ServiceSkills.astro";
+import Testimonials from "@/components/testimonials/astro/Testimonials.astro";
+import ContactCTA from "@/components/cta/ContactCTA.astro";
 ---
 
 <MainPageLayout
@@ -49,4 +49,3 @@ import MainPageLayout from "@/layouts/MainPageLayout.astro";
     z-index: 1;
   }
 </style>
-

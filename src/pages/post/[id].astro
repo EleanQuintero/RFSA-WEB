@@ -1,28 +1,27 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import CallToAction from "@/components/cta/CallToAction.astro";
+import ContactCTA from "@/components/cta/ContactCTA.astro";
+import Hero from "@/components/hero/Hero.astro";
+import Icon from "@/components/icons/Icon.astro";
+import Pill from "@/components/ui/astro/Pill.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ContactCTA from "@/components/ContactCTA.astro";
-import Hero from "@/components/Hero.astro";
-import Icon from "@/components/Icon.astro";
-import Pill from "@/components/Pill.astro";
-import CallToAction from "@/components/CallToAction.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 
-export const prerender = true
+export const prerender = true;
 export async function getStaticPaths() {
-  const posts = await getCollection("posts"); 
+  const posts = await getCollection("posts");
 
   return posts.map((post) => ({
-    params: { id: post.id},
-    props: { post }
-  }))
+    params: { id: post.id },
+    props: { post },
+  }));
 }
 
-const { post } = Astro.props
-const { data } = post
-const { title, description, img, publishDate, tags, img_alt } = data
+const { post } = Astro.props;
+const { data } = post;
+const { title, description, img, publishDate, tags, img_alt } = data;
 
-const { Content } = await render(post)
-
+const { Content } = await render(post);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -48,11 +47,11 @@ const { Content } = await render(post)
       </div>
     </header>
     <main class="wrapper">
-      <div class=" flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-x-5">
+      <div class="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-x-5">
         <div class="content prose-slate mb-5">
           <Content />
         </div>
-        <div class="p-8  justify-center items-center lg:w-[70%]" >
+        <div class="p-8 justify-center items-center lg:w-[70%]">
           <img
             transition:name=`img-${title}`
             src={img}

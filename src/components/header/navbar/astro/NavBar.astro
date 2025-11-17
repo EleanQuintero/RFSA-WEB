@@ -1,0 +1,28 @@
+---
+import Navigation from "@/components/header/navbar/react/Navigation";
+
+// Social media links
+const socialLinks = [
+  { icon: "instagram-logo", url: "https://www.instagram.com/adriraw" },
+];
+
+// Get the current URL path to highlight the active link
+const currentPath = Astro.url.pathname;
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
+
+// Navigation items array - easy to add new sections
+const navItems = [
+  { label: "Inicio", path: "/" },
+  { label: "Blog", path: "/posts" },
+  { label: "Sobre Mí", path: "/about" },
+  { label: "Tienda", path: "/shop" },
+  { label: "Atletas", path: "/atletas" },
+];
+---
+
+<Navigation
+  client:load
+  currentPath={currentPath}
+  navItems={navItems}
+  socialLinks={socialLinks}
+/>
