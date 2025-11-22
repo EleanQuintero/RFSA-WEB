@@ -15,6 +15,30 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Fecha", name: "date", widget: "datetime" }
-      - { label: "Cuerpo", name: "body", widget: "markdown" }
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - {
+          label: "Descripción",
+          name: "description",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "Fecha de publicación",
+          name: "publishDate",
+          widget: "datetime",
+          required: true,
+        }
+      - { label: "Etiquetas", name: "tags", widget: "list", required: true }
+      - {
+          label: "Imagen destacada",
+          name: "img",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "Texto alternativo de imagen",
+          name: "img_alt",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Cuerpo", name: "body", widget: "markdown", required: true }
