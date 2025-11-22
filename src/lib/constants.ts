@@ -7,23 +7,23 @@ type IconsUrlType = {
 
 export const iconsUrl: IconsUrlType = {
     Step1: [
-        "/src/icons/icons/camera-two-svgrepo-com.svg",
-        "/src/icons/icons/chart-pie-svgrepo-com.svg",
-        "/src/icons/icons/pencil-svgrepo-com.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811688/camera-two-svgrepo-com_xudqzg.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811688/chart-pie-svgrepo-com_l0wrux.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811689/pencil-svgrepo-com_ami7cd.svg",
     ],
     Step2: [
-        "/src/icons/icons/crossfit-svgrepo-com.svg",
-        "/src/icons/icons/stretch-svgrepo-com.svg",
-        "/src/icons/icons/moulding-svgrepo-com.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811688/crossfit-svgrepo-com_kdztip.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811690/stretch-svgrepo-com_rtyqwe.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811689/moulding-svgrepo-com_ktgw6x.svg",
     ],
     Step3: [
-        "/src/icons/icons/strategy-planning-pr-svgrepo-com.svg",
-        "/src/icons/icons/light-bulb-idea-people-svgrepo-com.svg",
-        "/src/icons/icons/dumbbell-svgrepo-com.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811690/strategy-planning-pr-svgrepo-com_smskd6.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811689/light-bulb-idea-people-svgrepo-com_uaoono.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811688/dumbbell-svgrepo-com_nlabxe.svg",
     ],
     Step4: [
-        "/src/icons/icons/talk-talk-svgrepo-com.svg",
-        "/src/icons/icons/question-answer-help-svgrepo-com.svg",
-        "/src/icons/icons/cell-phone-svgrepo-com.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811691/talk-talk-svgrepo-com_rfm4cg.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811690/question-answer-help-svgrepo-com_vuuhln.svg",
+        "https://res.cloudinary.com/dqtrf0nxr/image/upload/v1763811688/cell-phone-svgrepo-com_w35usj.svg",
     ],
 };
