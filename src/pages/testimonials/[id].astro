@@ -20,7 +20,9 @@ export async function getStaticPaths() {
 const { atleta } = Astro.props;
 const { data } = atleta;
 const { name, img, img2, img3, img4, img5 } = data;
-const images = [img, img2, img3, img4, img5].filter(Boolean);
+const images = [img, img2, img3, img4, img5].filter((img): img is string =>
+  Boolean(img)
+);
 const { Content } = await render(atleta);
 ---
 

@@ -17,14 +17,15 @@ const posts = defineCollection({
 const testimonials = defineCollection({
 	loader: glob({ base: './src/content/testimonials', pattern: '**/*.md', }),
 	schema: z.object({
+		id: z.string(),
 		name: z.string(),
 		sport: z.string(),
 		img: z.string(),
-		img2: z.string(),
-		img3: z.string(),
-		img4: z.string(),
-		img5: z.string(),
-		rating: z.string(),
+		img2: z.string().optional(),
+		img3: z.string().optional(),
+		img4: z.string().optional(),
+		img5: z.string().optional(),
+		rating: z.union([z.number(), z.string()]).transform(val => typeof val === 'string' ? parseInt(val) : val),
 		testimonial: z.string(),
 		url: z.string()
 	}),
