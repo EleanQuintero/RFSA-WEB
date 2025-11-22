@@ -47,8 +47,8 @@ const { Content } = await render(atleta);
       <div class="content wrapper prose-slate prose-lg mx-auto">
         <Content />
       </div>
-      <div class="md:w-4/6 w-3/4 h-auto">
-        <PictureCarousel images={images} client:load />
+      <div class="md:w-4/6 w-full h-auto">
+        <PictureCarousel images={images} client:only />
       </div>
     </section>
     <section class="mt-12">
