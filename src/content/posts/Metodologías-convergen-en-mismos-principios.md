@@ -1,7 +1,7 @@
 ---
 title: Métodos de Entrenamiento y mismos principios
 publishDate: 2026-01-15 00:00:00
-img: https://res.cloudinary.com/dqtrf0nxr/image/upload/v1768470897/articulo1_cover_ial8dn.webp
+img_cover: https://res.cloudinary.com/dqtrf0nxr/image/upload/v1768470897/articulo1_cover_ial8dn.webp
 img_alt: Articulo comentado en el post
 description: |
   Resulta esencial observar cómo entrenan realmente los powerlifters, más allá de discursos teóricos o modas metodológicas. El estudio que analizamos ofrece precisamente esa perspectiva empírica
