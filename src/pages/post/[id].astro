@@ -25,7 +25,9 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="stack gap-20 bg-color-dark bg-color-ligth">
+  <section
+    class="stack gap-20 bg-color-dark bg-color-ligth px-4 sm:px-6 lg:px-8"
+  >
     <header>
       <div class="flex flex-col items-center justify-center mt-20">
         <div class="back-link">
@@ -38,7 +40,7 @@ const { Content } = await render(post);
             >
           </CallToAction>
         </div>
-        <Hero tagline="" title={title} align="center" className="text-xl p-5">
+        <Hero tagline="" title={title} align="center" className="text-xl">
           <p class="description">{description}</p>
           <div class="tags">
             {tags.map((t) => <Pill>{t}</Pill>)}
@@ -82,11 +84,15 @@ const { Content } = await render(post);
     .description {
       font-size: var(--text-lg);
       max-width: 54ch;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .content {
       max-width: 75ch;
       margin-inline: auto;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .content > :global(* + *) {
@@ -130,6 +136,28 @@ const { Content } = await render(post);
     .content :global(a:hover),
     .content :global(a:focus) {
       text-decoration-color: currentColor;
+    }
+
+    @media (max-width: 49.99em) {
+      .content {
+        padding: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      header {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .description {
+        padding: 0 0.5rem;
+      }
+
+      .tags {
+        padding: 0 0.5rem;
+        flex-wrap: wrap;
+      }
     }
 
     @media (min-width: 50em) {
