@@ -1,25 +1,16 @@
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { SplitText } from "gsap/SplitText"
 
-gsap.registerPlugin(ScrollTrigger, SplitText)
-
-// Timeline maestra para coordinar todas las animaciones
-const masterTl = gsap.timeline({
-  paused: true // La timeline maestra comienza pausada
-})
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 
 let isInitialized = false
+let refreshTimer = null
 
-// Función para inicializar todas las animaciones
+// Función para inicializar la configuración global de ScrollTrigger y ScrollSmoother
 export function initAnimations() {
   if (isInitialized) { return }
-
-  
-  // Aseguramos que las animaciones se ejecuten en el orden correcto
-  ScrollTrigger.getAll().forEach(trigger => {
-    trigger.kill()
-  })
 
   // Configuración global de ScrollTrigger
   ScrollTrigger.config({
@@ -27,14 +18,24 @@ export function initAnimations() {
     autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
   })
 
-  // Aseguramos que las animaciones se reinicien correctamente
-  ScrollTrigger.refresh()
+  // ScrollSmoother crea un scroll suave que se integra con ScrollTrigger
+  ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.5,
+    effects: true,
+    normalizeScroll: true,
+  })
 
-  // Iniciamos la timeline maestra
-  masterTl.play()
-  
   isInitialized = true
 }
 
-// Exportamos la timeline maestra para poder usarla en otros componentes
-export { masterTl } 
+// Llamar a esto en vez de ScrollTrigger.refresh() directamente.
+// Agrupa múltiples llamadas en un solo refresh diferido para evitar race conditions.
+export function deferredRefresh() {
+  if (refreshTimer) { clearTimeout(refreshTimer) }
+  refreshTimer = setTimeout(() => {
+    ScrollTrigger.refresh()
+    refreshTimer = null
+  }, 100)
+} 
