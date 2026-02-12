@@ -32,7 +32,7 @@ const projects = (await getCollection("posts"))
 </section>
 
 <script>
-  import { masterTl } from "@/scripts/animations";
+  import { deferredRefresh } from "@/scripts/animations";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
@@ -49,9 +49,10 @@ const projects = (await getCollection("posts"))
         trigger: "#blog-preview",
         start: "top top",
         end: "+=100%",
-        pin: true, // Comentamos esto para que no fije la sección
+        pin: true,
         pinSpacing: true,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
         scrub: 3,
       },
     });
@@ -90,10 +91,6 @@ const projects = (await getCollection("posts"))
         x: +80,
       });
 
-    // Añadimos nuestra timeline a la timeline maestra
-    masterTl.add(blogPreviewTL, ">"); // El ">" asegura que esta animación comience después de la anterior
-
-    // Forzamos un refresh de ScrollTrigger
-    ScrollTrigger.refresh();
+    deferredRefresh();
   });
 </script>

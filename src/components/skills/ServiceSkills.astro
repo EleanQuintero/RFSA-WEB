@@ -14,20 +14,18 @@ import Skills from "./Skills.astro";
 </section>
 
 <script>
-  import { masterTl } from "@/scripts/animations";
+  import { deferredRefresh } from "@/scripts/animations";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
 
   gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  // Aseguramos que el código se ejecute después de que el DOM esté listo
   document.addEventListener("DOMContentLoaded", () => {
     const splitText = new SplitText(".hero-text", {
       type: "words",
     });
 
-    // Timeline para las animaciones de ServiceSkills
     const serviceTl = gsap.timeline({
       scrollTrigger: {
         trigger: "#service-hero",
@@ -36,6 +34,7 @@ import Skills from "./Skills.astro";
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
         scrub: 2.5,
       },
     });
@@ -56,10 +55,6 @@ import Skills from "./Skills.astro";
         x: -200,
       });
 
-    // Añadimos nuestra timeline a la timeline maestra
-    masterTl.add(serviceTl, ">"); // El ">" asegura que esta animación comience después de la anterior
-
-    // Forzamos un refresh de ScrollTrigger
-    ScrollTrigger.refresh();
+    deferredRefresh();
   });
 </script>

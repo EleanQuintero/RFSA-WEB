@@ -38,19 +38,16 @@ import MainHeader from "../header/MainHeader.astro";
 </style>
 
 <script>
-  import { initAnimations, masterTl } from "@/scripts/animations";
+  import { initAnimations, deferredRefresh } from "@/scripts/animations";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
-  // Aseguramos que el código se ejecute después de que el DOM esté listo
   document.addEventListener("DOMContentLoaded", () => {
-    // Inicializamos las animaciones
     initAnimations();
 
-    // Timeline general para otras animaciones
     const tl = gsap.timeline({
       ease: "power2.out",
       scrollTrigger: {
@@ -59,16 +56,13 @@ import MainHeader from "../header/MainHeader.astro";
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
         start: "top top",
         end: "+=100%",
         id: "hero-timeline",
       },
     });
 
-    // Añadimos nuestra timeline a la timeline maestra
-    masterTl.add(tl);
-
-    // Animación inicial
     tl.from("#hero-background", {
       scale: 1.1,
       duration: 1.5,
@@ -107,7 +101,6 @@ import MainHeader from "../header/MainHeader.astro";
         "+=0.3"
       );
 
-    // Forzamos un refresh de ScrollTrigger
-    ScrollTrigger.refresh();
+    deferredRefresh();
   });
 </script>
