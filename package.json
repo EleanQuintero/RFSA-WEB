@@ -27,7 +27,7 @@
     "decap-cms-app": "3.10.0",
     "embla-carousel-autoplay": "8.6.0",
     "embla-carousel-react": "8.6.0",
-    "gsap": "3.14.2",
+    "gsap": "3.13.0",
     "ioredis": "5.9.2",
     "lucide-react": "0.563.0",
     "netlify-cms-oauth-provider-node": "2.0.0",
