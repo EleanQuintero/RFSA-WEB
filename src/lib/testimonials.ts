@@ -1,15 +1,5 @@
 export const testimonials = [
     {
-        name: "Adrian Manzanares",
-        sport: "Powerlifting",
-        image:
-            "https://powerhispania.net/wp-content/uploads/2024/10/Adrian_Manzanares.jpg",
-        rating: 5,
-        testimonial:
-            "Training here has completely transformed my performance in the pool. The facilities and coaching are world-class.",
-        url: "/testimonials/adrian-manzanares",
-    },
-    {
         name: "Mayara Da silva (Maya)",
         sport: "Powerlifting",
         image:
